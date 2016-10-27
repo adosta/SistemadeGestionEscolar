@@ -20,6 +20,9 @@ namespace SistemadeGestionEscolar.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Alumno> alumnos { get; set; }
+        public DbSet<Grupo> grupos { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
