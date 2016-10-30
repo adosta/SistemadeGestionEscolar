@@ -13,6 +13,7 @@ namespace SistemadeGestionEscolar.Controllers
         ApplicationDbContext db = new ApplicationDbContext();
 
         [HttpPost]
+        [Authorize(Roles = "Admin ,Caturista")]
         public ActionResult Listar(string nombreBuscado)
         {
             var resultadoDeBusqueda = new List<Alumno>();
@@ -56,7 +57,7 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin ,Capturista")]
+        //[Authorize(Roles = "Admin ,Capturista")]
         public ActionResult crear()
         {
             var grupos = db.grupos;
@@ -80,10 +81,13 @@ namespace SistemadeGestionEscolar.Controllers
                 {
                     return RedirectToAction("detalles", "grupos", new { id = alumnoNuevo.grupoID });
                 }
-                else
+                else if (User.Identity.IsAuthenticated)
+                {
+                    return RedirectToAction("listar");
+                }else
                 {
                     //Regresar una Vista
-                    return RedirectToAction("listar");
+                    return RedirectToAction("../Home");
                 }
                 //Regresar una Vista
 
@@ -160,7 +164,18 @@ namespace SistemadeGestionEscolar.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin ")]
+        public ActionResult DetallesAlumno(int id = 0)
+        {
+            var alumnos = db.alumnos.Find(id);
 
+            if (alumnos == null)
+            {
+                RedirectToAction("listar");
+
+            }
+            return View(alumnos);
+        }
 
 
 

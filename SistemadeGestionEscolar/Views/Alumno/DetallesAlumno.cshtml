@@ -1,0 +1,18 @@
+﻿@model Alumno
+@using SistemadeGestionEscolar.Models
+
+
+@{
+    ViewBag.Title = "DetallesAlumno";
+    
+}
+
+<h2>Detalles</h2>
+@Html.HiddenFor(a => a.numeroMatricula)
+<span>Nombre:</span>@(Model.nombre + " " + Model.apellidoPaterno + " " + Model.apellidoMaterno)<br />
+<span>Grupo:</span>@Model.grupo.nombreGrupo<br/>
+
+
+@Html.ActionLink("Back to List", "listar")
+
+
