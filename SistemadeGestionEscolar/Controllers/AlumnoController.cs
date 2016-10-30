@@ -133,7 +133,7 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Capturista")]
         public ActionResult editar(int id = 0)
         {
             var alumno = db.alumnos.Find(id);
@@ -148,7 +148,7 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin ")]
+        [Authorize(Roles = "Admin,Capturista ")]
         public ActionResult editar(Alumno alumnoEditado)
         {
             if (ModelState.IsValid)

@@ -276,7 +276,7 @@
     <Content Include="Views\Alumno\Crear.cshtml" />
     <Content Include="Views\Alumno\Editar.cshtml" />
     <Content Include="Views\Alumno\Eliminar.cshtml" />
-    <Content Include="Views\Alumno\Partial_Create.cshtml" />
+    <Content Include="Views\Alumno\Partial_Crear.cshtml" />
     <Content Include="Views\Grupo\Listar.cshtml" />
     <Content Include="Views\Grupo\Crear.cshtml" />
     <Content Include="Views\Grupo\Editar.cshtml" />
