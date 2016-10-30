@@ -1,0 +1,36 @@
+﻿@model Grupo
+@using SistemadeGestionEscolar.Models;
+@{
+    ViewBag.Title = "editar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>editar</h2>
+<form action="editar" method="post">
+
+    <div class="row">
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(grupo => grupo.nombreGrupo, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(grupo => grupo.nombreGrupo, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(grupo => grupo.nombreGrupo, "", new { @class = "error" })
+        </div>
+
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(grupo => grupo.carrera, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(grupo => grupo.carrera, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(grupo => grupo.carrera, "", new { @class = "error" })
+        </div>
+    </div>
+
+    <div class="form-group col-sm-12">
+
+        <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
+        <p class="error"> @ViewBag.MensajeError </p>
+
+    </div>
+</form>
+

@@ -9,8 +9,11 @@ using System.Data.Entity;
 
 namespace SistemadeGestionEscolar.Controllers
 {
+
+    [Authorize]
     public class GrupoController : Controller
     {
+
         ApplicationDbContext db = new ApplicationDbContext();
 
         [HttpGet]

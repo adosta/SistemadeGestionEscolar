@@ -1,0 +1,71 @@
+﻿@model Alumno
+    @using SistemadeGestionEscolar.Models
+
+
+@{
+    ViewBag.Title = "Crear";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Crear</h2>
+<form action="crear" method="post">
+
+    <div class="row">
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(alumno => alumno.nombre, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.nombre, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.nombre, "", new { @class = "error" })
+        </div>
+
+
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(alumno => alumno.apellidoPaterno)
+
+            @Html.EditorFor(alumno => alumno.apellidoPaterno, new { htmlAttributes = new { required = "", @class = "form-control" } })
+
+            @Html.ValidationMessageFor(alumno => alumno.apellidoPaterno, "", new { @class = "error" })
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.apellidoMaterno, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.apellidoMaterno, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.apellidoMaterno, "", new { @class = "error" })
+        </div>
+
+        <div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.fechaDeNacimiento, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.fechaDeNacimiento, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+
+            @Html.LabelFor(alumno => alumno.grupo.nombreGrupo, new { @class = "control-label" })
+
+            <div>
+
+                @Html.DropDownList("grupoID", null, new { @class = "form-control" })
+
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group col-sm-12">
+
+        <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
+        <p class="error"> @ViewBag.MensajeError </p>
+
+    </div>
+</form>

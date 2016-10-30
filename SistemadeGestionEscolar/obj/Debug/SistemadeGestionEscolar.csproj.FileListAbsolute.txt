@@ -1,16 +1,4 @@
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\ApplicationInsights.config
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\csc.exe
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\vbc.exe
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\VBCSCompiler.exe
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\SistemadeGestionEscolar.dll.config
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\SistemadeGestionEscolar.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\SistemadeGestionEscolar.pdb
@@ -27,7 +15,6 @@ C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.AspNet.Identity.Core.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Host.SystemWeb.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Cookies.dll
@@ -53,7 +40,6 @@ C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.AI.Web.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.ApplicationInsights.xml
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\System.Web.Helpers.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\System.Web.Mvc.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\System.Web.Optimization.xml
@@ -80,5 +66,5 @@ C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CamposRequeridos.resources
+C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.Initial.resources
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
