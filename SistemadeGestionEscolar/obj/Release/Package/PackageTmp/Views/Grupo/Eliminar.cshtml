@@ -1,0 +1,17 @@
+﻿@model Grupo
+@using SistemadeGestionEscolar.Models
+
+@{
+    ViewBag.Title = "eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>eliminar</h2>
+<p>Estas seguro de querer eliminar</p>
+<span>Nombre del grupo:</span>@(Model.nombreGrupo)<br />
+<span>carrera:</span>@(Model.carrera)
+
+<form action="confirmarEliminar" method="post">
+    @Html.HiddenFor(a => a.grupoID)
+    <button type="submit">Confirmar</button>
+</form>

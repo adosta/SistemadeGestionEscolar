@@ -1,0 +1,65 @@
+﻿@model SistemadeGestionEscolar.Models.Grupo
+@using SistemadeGestionEscolar.Models
+
+@{
+    ViewBag.Title = "Detalles";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Alumno nuevoAlumno = new Alumno();
+    nuevoAlumno.grupoID = Model.grupoID;
+}
+
+<h2>Detalles</h2>
+<div>
+    <h4>Grupo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreGrupo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreGrupo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrera)
+        </dd>
+
+    </dl>
+</div>
+
+@Html.Partial("../Alumno/Partial_Crear", nuevoAlumno)
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Nombre Completo</th>
+
+        <th>Fecha de nacimiento</th>
+        <th>Nombre del Grupo</th>
+        <th></th>
+    </tr>
+    @foreach (var alumno in Model.alumnos)
+    {
+        <tr>
+
+            <td>@(alumno.nombre + " " + alumno.apellidoPaterno + " " + alumno.apellidoMaterno)</td>
+            <td>@alumno.fechaDeNacimiento</td>
+            <td>@alumno.grupo.nombreGrupo</td>
+            <td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { id = alumno.numeroMatricula }, null)  </td>
+            <td>@Html.ActionLink("Editar", "editar", "Alumno", new { id = alumno.numeroMatricula }, null)  </td>
+        </tr>
+    }
+
+
+</table>
+
+
+<p>
+    @Html.ActionLink("Editar", "editar", new { id = Model.grupoID })
+    @Html.ActionLink("Back to List", "listar")
+</p>
+

@@ -64,7 +64,7 @@ C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
-C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.Migrations.CamposRequeridos.resources
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.csproj.GenerateResource.Cache
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.dll
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.pdb
+C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Release\SistemadeGestionEscolar.Migrations.Initial.resources

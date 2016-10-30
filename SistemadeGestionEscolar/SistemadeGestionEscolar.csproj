@@ -282,6 +282,7 @@
     <Content Include="Views\Grupo\Editar.cshtml" />
     <Content Include="Views\Grupo\Eliminar.cshtml" />
     <Content Include="Views\Grupo\Detalles.cshtml" />
+    <Content Include="Views\BuscadorFormulario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

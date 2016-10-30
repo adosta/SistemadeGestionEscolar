@@ -1,0 +1,17 @@
+﻿@model Alumno
+    @using SistemadeGestionEscolar.Models
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<p>Estas seguro de querer eliminar</p>
+<span>Nombre:</span>@(Model.nombre + " " + Model.apellidoPaterno + " " + Model.apellidoMaterno)<br />
+<span>Grupo:</span>@Model.grupo.nombreGrupo
+
+<form action="confirmarEliminar" method="post">
+    @Html.HiddenFor(a => a.numeroMatricula)
+    <button type="submit">Confirmar</button>
+</form>
