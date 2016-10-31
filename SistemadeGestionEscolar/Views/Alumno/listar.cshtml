@@ -15,42 +15,48 @@
 
     @Html.ActionLink("Crear Nuevo Alumno", "crear")
 }
-<table class="table table-striped table-hover">
-    <tr>
-        <th>Nombre</th>
-        <th>Apellido Paterno</th>
-        <th>Apellido Materno</th>
-        @*<th>Fecha de Nacimiento</th>*@
-        <th>Carrera</th>
 
-    </tr>
-
-    @foreach (var alumno in Model)
-    {
+    <table class="table table-striped table-hover">
         <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            @*<th>Fecha de Nacimiento</th>*@
+            <th>Carrera</th>
 
-            <td>@alumno.nombre</td>
-            <td>@alumno.apellidoPaterno</td>
-            <td>@alumno.apellidoMaterno</td>
-            @*<td>@alumno.fechaDeNacimiento.ToLongDateString()</td>*@
-            <td>@alumno.grupo.nombreGrupo</td>
-
-
-
-            @if (User.IsInRole("Admin"))
-                {
-                <td>@Html.ActionLink("Eliminar", "eliminar", new { id = alumno.numeroMatricula })</td>
-            }
-
-
-            @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
-                {
-                <td>@Html.ActionLink("Detalles", "DetallesAlumno", new { id = alumno.numeroMatricula })</td>
-                <td>@Html.ActionLink("Editar", "editar", new { id = alumno.numeroMatricula })</td>
-                <td><button class="btn btn-primary" type="submit" value="Enviar">INSCRIBIR</button></td>
-            }
         </tr>
-    }
+
+        @foreach (var alumno in Model)
+        {
+            <tr>
+
+                <td>@alumno.nombre</td>
+                <td>@alumno.apellidoPaterno</td>
+                <td>@alumno.apellidoMaterno</td>
+                @*<td>@alumno.fechaDeNacimiento.ToLongDateString()</td>*@
+                <td>@alumno.grupo.nombreGrupo</td>
 
 
-</table>
+
+                @if (User.IsInRole("Admin"))
+                {
+                    <td>@Html.ActionLink("Eliminar", "eliminar", new { id = alumno.numeroMatricula })</td>
+                }
+
+
+                @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
+                {
+                    <td>@Html.ActionLink("Detalles", "DetallesAlumno", new { id = alumno.numeroMatricula })</td>
+                    <td>@Html.ActionLink("Editar", "editar", new { id = alumno.numeroMatricula })</td>
+
+
+
+
+                    <td><button class="btn btn-primary" type="submit" value="Enviar">INSCRIBIR</button></td>
+                }
+            </tr>
+
+        }
+
+
+    </table>
