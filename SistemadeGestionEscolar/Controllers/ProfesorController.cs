@@ -22,9 +22,9 @@ namespace SistemadeGestionEscolar.Controllers
             //select * FROM alumnos
             if (!string.IsNullOrEmpty(nombreBuscado))
             {
-                resultadoDeBusqueda = db.profesores.Where(a => a..Contains(nombreBuscado) ||
-                a.apellidoMaterno.Contains(nombreBuscado) ||
-                a.nombre.Contains(nombreBuscado)).ToList();
+                resultadoDeBusqueda = db.profesores.Where(a => a.nombre.Contains(nombreBuscado) ||
+                a.apellidoPaterno.Contains(nombreBuscado) ||
+                a.apellidoMaterno.Contains(nombreBuscado)).ToList();
             }
             else
             {
@@ -36,7 +36,7 @@ namespace SistemadeGestionEscolar.Controllers
 
             return View(resultadoDeBusqueda);
         }
-
+        
         [HttpGet]
         public ActionResult Listar()
         {
@@ -56,60 +56,33 @@ namespace SistemadeGestionEscolar.Controllers
         //[Authorize(Roles = "Admin ,Capturista")]
         public ActionResult crear()
         {
-            var grupos = db.grupos;
-            SelectList grupoID = new SelectList(grupos, "grupoID", "nombreGrupo");
-
-            ViewBag.grupoID = grupoID;
             return View();
         }
 
         [HttpPost]
-        public ActionResult crear(Alumno alumnoNuevo, bool enDetallesDeGrupo = false)
+        public ActionResult crear(Profesor profesorNuevo)
         {
             if (ModelState.IsValid)
-            {
-                //Crear Alumno
-                db.alumnos.Add(alumnoNuevo);
-
-                //Guardar Cambios
-                db.SaveChanges();
-                if (enDetallesDeGrupo)
                 {
-                    return RedirectToAction("detalles", "grupos", new { id = alumnoNuevo.grupoID });
-                }
-                else if (User.Identity.IsAuthenticated)
-                {
+                    db.profesores.Add(profesorNuevo);
+                    db.SaveChanges();
                     return RedirectToAction("listar");
                 }
-                else
-                {
-                    //Regresar una Vista
-                    return RedirectToAction("../Home");
-                }
-                //Regresar una Vista
-
-
+                ViewBag.MensajeError = "Hubo un error, Favor de verificar los datos";
+                return View();
             }
-            ViewBag.MensajeError = "Hubo un error,Favor de verificar la informacion";
-
-            var grupos = db.grupos;
-            SelectList grupoID = new SelectList(grupos, "grupoID", "nombreGrupo");
-
-            ViewBag.grupoID = grupoID;
-            return View();
-        }
 
         [Authorize(Roles = "Admin")]
         public ActionResult eliminar(int id = 0)
         {
-            var alumno = db.alumnos.Find(id);
-            if (alumno == null)
+            var profesor = db.profesores.Find(id);
+            if (profesor == null)
             {
                 return RedirectToAction("listar");
             }
             else
             {
-                return View(alumno);
+                return View(profesor);
             }
 
 
@@ -118,17 +91,17 @@ namespace SistemadeGestionEscolar.Controllers
         [HttpPost]
         [ActionName("eliminar")]
         [Authorize(Roles = "Admin")]
-        public ActionResult confirmarEliminar(int numeroMatricula = 0)
+        public ActionResult confirmarEliminar(int profesorID = 0)
         {
 
-            var alumno = db.alumnos.Find(numeroMatricula);
+            var profesor = db.profesores.Find(profesorID);
 
-            if (alumno == null)
+            if (profesor == null)
             {
                 return RedirectToAction("listar");
             }
 
-            db.alumnos.Remove(alumno);
+            db.profesores.Remove(profesor);
             db.SaveChanges();//Ejecuta la lista de querys en la BD
             return RedirectToAction("listar");
         }

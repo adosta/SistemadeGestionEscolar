@@ -22,7 +22,7 @@ namespace SistemadeGestionEscolar.Models
     {
         public DbSet<Alumno> alumnos { get; set; }
         public DbSet<Grupo> grupos { get; set; }
-        public DbSet<Grupo> profesores { get; set; }
+        public DbSet<Profesor> profesores { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
