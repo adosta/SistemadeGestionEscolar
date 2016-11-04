@@ -110,24 +110,24 @@ namespace SistemadeGestionEscolar.Controllers
         [Authorize(Roles = "Admin,Capturista")]
         public ActionResult editar(int id = 0)
         {
-            var alumno = db.alumnos.Find(id);
-            if (alumno == null)
+            var profesor = db.profesores.Find(id);
+            if (profesor == null)
             {
                 return RedirectToAction("listar");
             }
-            var grupo = db.grupos;
-            SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
-            ViewBag.grupoID = grupoID;
-            return View(alumno);
+           // var grupo = db.grupos;
+            //SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
+            //ViewBag.grupoID = grupoID;
+            return View(profesor);
         }
 
         [HttpPost]
         [Authorize(Roles = "Admin,Capturista ")]
-        public ActionResult editar(Alumno alumnoEditado)
+        public ActionResult editar(Alumno profesorEditado)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(alumnoEditado).State = EntityState.Modified;
+                db.Entry(profesorEditado).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("listar");
             }
@@ -135,16 +135,16 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         [Authorize(Roles = "Admin ")]
-        public ActionResult DetallesAlumno(int id = 0)
+        public ActionResult DetallesProfesor(int id = 0)
         {
-            var alumnos = db.alumnos.Find(id);
+            var profesores = db.profesores.Find(id);
 
-            if (alumnos == null)
+            if (profesores == null)
             {
                 RedirectToAction("listar");
 
             }
-            return View(alumnos);
+            return View(profesores);
         }
     }
-}
+} 
