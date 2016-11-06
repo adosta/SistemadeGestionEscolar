@@ -1,53 +1,127 @@
-﻿using SistemadeGestionEscolar.Models;
-using System.Data.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SistemadeGestionEscolar.Models;
 
 namespace SistemadeGestionEscolar.Controllers
 {
     public class AsignaturaController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        [HttpPost]
-        [Authorize(Roles = "Admin ,Caturista")]
-        public ActionResult Listar(string nombreBuscado)
+        // GET: Asignatura
+        public ActionResult Index()
         {
-            var resultadoDeBusqueda = new List<Asignatura>();
-
-            //consultar la lista de alumnos
-            //select * FROM alumnos
-            if (!string.IsNullOrEmpty(nombreBuscado))
-            {
-                resultadoDeBusqueda = db.asignaturas.Where(a => a.nombreAsignatura.Contains(nombreBuscado)).ToList();
-            }
-            else
-            {
-                resultadoDeBusqueda = db.asignaturas.ToList();
-
-            }
-
-            //pedirle a la lista que muestre los resultados en pantalla
-
-            return View(resultadoDeBusqueda);
+            return View(db.asignaturas.ToList());
         }
 
-        [HttpGet]
-        public ActionResult Listar()
+        // GET: Asignatura/Details/5
+        public ActionResult Details(int? id)
         {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Asignatura asignatura = db.asignaturas.Find(id);
+            if (asignatura == null)
+            {
+                return HttpNotFound();
+            }
+            return View(asignatura);
+        }
 
+        // GET: Asignatura/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
 
-            //consultar la lista de alumnos
-            //select * FROM alumnos
-            var todosLosAlumnos = db.asignaturas.ToList();
+        // POST: Asignatura/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "asignaturaID,nombreAsignatura")] Asignatura asignatura)
+        {
+            if (ModelState.IsValid)
+            {
+                db.asignaturas.Add(asignatura);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            return View(asignatura);
+        }
 
-            //pedirle a la lista que muestre los resultados en pantalla
+        // GET: Asignatura/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Asignatura asignatura = db.asignaturas.Find(id);
+            if (asignatura == null)
+            {
+                return HttpNotFound();
+            }
+            return View(asignatura);
+        }
 
-            return View(todosLosAlumnos);
+        // POST: Asignatura/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "asignaturaID,nombreAsignatura")] Asignatura asignatura)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(asignatura).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(asignatura);
+        }
+
+        // GET: Asignatura/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Asignatura asignatura = db.asignaturas.Find(id);
+            if (asignatura == null)
+            {
+                return HttpNotFound();
+            }
+            return View(asignatura);
+        }
+
+        // POST: Asignatura/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Asignatura asignatura = db.asignaturas.Find(id);
+            db.asignaturas.Remove(asignatura);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }

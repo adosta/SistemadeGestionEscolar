@@ -14,5 +14,7 @@ namespace SistemadeGestionEscolar.Models
         public String carrera { get; set; }
 
         public virtual ICollection<Alumno> alumnos { get; set; }
+
+        public virtual ICollection<Clase> clases { get; set; }
     }
 }
