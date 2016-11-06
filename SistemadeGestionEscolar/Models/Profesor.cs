@@ -29,6 +29,6 @@ namespace SistemadeGestionEscolar.Models
         [DataType(DataType.Date)]
         public DateTime fechaDeNacimiento { get; set; }
 
-        public virtual ICollection<Grupo> grupos { get; set; }
+        public virtual ICollection<Clase> clase { get; set; }
     }
 }

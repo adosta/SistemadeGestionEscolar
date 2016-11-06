@@ -1,150 +1,127 @@
-﻿using SistemadeGestionEscolar.Models;
-using System.Data.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using SistemadeGestionEscolar.Models;
 
 namespace SistemadeGestionEscolar.Controllers
 {
     public class ProfesorController : Controller
     {
-        ApplicationDbContext db = new ApplicationDbContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        [HttpPost]
-        [Authorize(Roles = "Admin ,Caturista")]
-        public ActionResult Listar(string nombreBuscado)
+        // GET: Profesor
+        public ActionResult Index()
         {
-            var resultadoDeBusqueda = new List<Profesor>();
+            return View(db.profesores.ToList());
+        }
 
-            //consultar la lista de alumnos
-            //select * FROM alumnos
-            if (!string.IsNullOrEmpty(nombreBuscado))
+        // GET: Profesor/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
             {
-                resultadoDeBusqueda = db.profesores.Where(a => a.nombre.Contains(nombreBuscado) ||
-                a.apellidoPaterno.Contains(nombreBuscado) ||
-                a.apellidoMaterno.Contains(nombreBuscado)).ToList();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
-            {
-                resultadoDeBusqueda = db.profesores.ToList();
-
-            }
-
-            //pedirle a la lista que muestre los resultados en pantalla
-
-            return View(resultadoDeBusqueda);
-        }
-        
-        [HttpGet]
-        public ActionResult Listar()
-        {
-
-
-            //consultar la lista de alumnos
-            //select * FROM alumnos
-            var todosLosAlumnos = db.alumnos.ToList();
-
-
-            //pedirle a la lista que muestre los resultados en pantalla
-
-            return View(todosLosAlumnos);
-        }
-
-        [HttpGet]
-        //[Authorize(Roles = "Admin ,Capturista")]
-        public ActionResult crear()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult crear(Profesor profesorNuevo)
-        {
-            if (ModelState.IsValid)
-                {
-                    db.profesores.Add(profesorNuevo);
-                    db.SaveChanges();
-                    return RedirectToAction("listar");
-                }
-                ViewBag.MensajeError = "Hubo un error, Favor de verificar los datos";
-                return View();
-            }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult eliminar(int id = 0)
-        {
-            var profesor = db.profesores.Find(id);
+            Profesor profesor = db.profesores.Find(id);
             if (profesor == null)
             {
-                return RedirectToAction("listar");
+                return HttpNotFound();
             }
-            else
-            {
-                return View(profesor);
-            }
-
-
-        }
-
-        [HttpPost]
-        [ActionName("eliminar")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult confirmarEliminar(int profesorID = 0)
-        {
-
-            var profesor = db.profesores.Find(profesorID);
-
-            if (profesor == null)
-            {
-                return RedirectToAction("listar");
-            }
-
-            db.profesores.Remove(profesor);
-            db.SaveChanges();//Ejecuta la lista de querys en la BD
-            return RedirectToAction("listar");
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin,Capturista")]
-        public ActionResult editar(int id = 0)
-        {
-            var profesor = db.profesores.Find(id);
-            if (profesor == null)
-            {
-                return RedirectToAction("listar");
-            }
-           // var grupo = db.grupos;
-            //SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
-            //ViewBag.grupoID = grupoID;
             return View(profesor);
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin,Capturista ")]
-        public ActionResult editar(Alumno profesorEditado)
+        // GET: Profesor/Create
+        public ActionResult Create()
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(profesorEditado).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("listar");
-            }
             return View();
         }
 
-        [Authorize(Roles = "Admin ")]
-        public ActionResult DetallesProfesor(int id = 0)
+        // POST: Profesor/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "profesorID,nombre,apellidoPaterno,apellidoMaterno,fechaDeNacimiento")] Profesor profesor)
         {
-            var profesores = db.profesores.Find(id);
-
-            if (profesores == null)
+            if (ModelState.IsValid)
             {
-                RedirectToAction("listar");
-
+                db.profesores.Add(profesor);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return View(profesores);
+
+            return View(profesor);
+        }
+
+        // GET: Profesor/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Profesor profesor = db.profesores.Find(id);
+            if (profesor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profesor);
+        }
+
+        // POST: Profesor/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "profesorID,nombre,apellidoPaterno,apellidoMaterno,fechaDeNacimiento")] Profesor profesor)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(profesor).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(profesor);
+        }
+
+        // GET: Profesor/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Profesor profesor = db.profesores.Find(id);
+            if (profesor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profesor);
+        }
+
+        // POST: Profesor/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Profesor profesor = db.profesores.Find(id);
+            db.profesores.Remove(profesor);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
-} 
+}
