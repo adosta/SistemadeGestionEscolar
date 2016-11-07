@@ -14,13 +14,16 @@ namespace SistemadeGestionEscolar.Models
         [Required]
         [Display(Name = "Profesor")]
         public int profesorID { get; set; }
+        public virtual Profesor profesor { get; set; }
 
         [Required]
         [Display(Name = "Asignatura")]
         public int asignaturaID { get; set; }
+        public virtual Asignatura asignatura { get; set; }
 
-        virtual public Profesor profesor { get; set; }
-
-        virtual public Asignatura asignatura { get; set; }
+        [Required]
+        [Display(Name = "Grupo")]
+        public int grupoID { get; set; }
+        public virtual Grupo grupo { get; set; }
     }
 }

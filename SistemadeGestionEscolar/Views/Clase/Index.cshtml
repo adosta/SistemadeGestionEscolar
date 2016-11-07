@@ -16,6 +16,9 @@
             @Html.DisplayNameFor(model => model.asignatura.nombreAsignatura)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.grupo.nombreGrupo)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.profesor.nombre)
         </th>
         <th></th>
@@ -25,6 +28,9 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.asignatura.nombreAsignatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grupo.nombreGrupo)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.profesor.nombre)

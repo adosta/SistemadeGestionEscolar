@@ -3,7 +3,7 @@ namespace SistemadeGestionEscolar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class InitialCreate : DbMigration
     {
         public override void Up()
         {
@@ -31,6 +31,44 @@ namespace SistemadeGestionEscolar.Migrations
                         carrera = c.String(),
                     })
                 .PrimaryKey(t => t.grupoID);
+            
+            CreateTable(
+                "dbo.Clases",
+                c => new
+                    {
+                        claseID = c.Int(nullable: false, identity: true),
+                        profesorID = c.Int(nullable: false),
+                        asignaturaID = c.Int(nullable: false),
+                        Grupo_grupoID = c.Int(),
+                    })
+                .PrimaryKey(t => t.claseID)
+                .ForeignKey("dbo.Asignaturas", t => t.asignaturaID, cascadeDelete: true)
+                .ForeignKey("dbo.Profesors", t => t.profesorID, cascadeDelete: true)
+                .ForeignKey("dbo.Grupoes", t => t.Grupo_grupoID)
+                .Index(t => t.profesorID)
+                .Index(t => t.asignaturaID)
+                .Index(t => t.Grupo_grupoID);
+            
+            CreateTable(
+                "dbo.Asignaturas",
+                c => new
+                    {
+                        asignaturaID = c.Int(nullable: false, identity: true),
+                        nombreAsignatura = c.String(nullable: false),
+                    })
+                .PrimaryKey(t => t.asignaturaID);
+            
+            CreateTable(
+                "dbo.Profesors",
+                c => new
+                    {
+                        profesorID = c.Int(nullable: false, identity: true),
+                        nombre = c.String(nullable: false),
+                        apellidoPaterno = c.String(nullable: false),
+                        apellidoMaterno = c.String(nullable: false),
+                        fechaDeNacimiento = c.DateTime(nullable: false),
+                    })
+                .PrimaryKey(t => t.profesorID);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -108,6 +146,9 @@ namespace SistemadeGestionEscolar.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.Clases", "Grupo_grupoID", "dbo.Grupoes");
+            DropForeignKey("dbo.Clases", "profesorID", "dbo.Profesors");
+            DropForeignKey("dbo.Clases", "asignaturaID", "dbo.Asignaturas");
             DropForeignKey("dbo.Alumnoes", "grupoID", "dbo.Grupoes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -115,12 +156,18 @@ namespace SistemadeGestionEscolar.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
+            DropIndex("dbo.Clases", new[] { "Grupo_grupoID" });
+            DropIndex("dbo.Clases", new[] { "asignaturaID" });
+            DropIndex("dbo.Clases", new[] { "profesorID" });
             DropIndex("dbo.Alumnoes", new[] { "grupoID" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
+            DropTable("dbo.Profesors");
+            DropTable("dbo.Asignaturas");
+            DropTable("dbo.Clases");
             DropTable("dbo.Grupoes");
             DropTable("dbo.Alumnoes");
         }

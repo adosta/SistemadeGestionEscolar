@@ -68,9 +68,6 @@ C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.Initial.resources
 C:\Users\Alexis\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.Initial.resources
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.dll
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\ApplicationInsights.config
@@ -138,3 +135,6 @@ C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.InitialCreate.resources
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.grupoclase.resources

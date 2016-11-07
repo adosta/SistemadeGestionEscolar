@@ -9,7 +9,8 @@ namespace SistemadeGestionEscolar.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
+            ContextKey = "SistemadeGestionEscolar.Models.ApplicationDbContext";
         }
 
         protected override void Seed(SistemadeGestionEscolar.Models.ApplicationDbContext context)

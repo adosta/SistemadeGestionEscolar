@@ -17,7 +17,7 @@ namespace SistemadeGestionEscolar.Controllers
         // GET: Clase
         public ActionResult Index()
         {
-            var clases = db.clases.Include(c => c.asignatura).Include(c => c.profesor);
+            var clases = db.clases.Include(c => c.asignatura).Include(c => c.grupo).Include(c => c.profesor);
             return View(clases.ToList());
         }
 
@@ -40,6 +40,7 @@ namespace SistemadeGestionEscolar.Controllers
         public ActionResult Create()
         {
             ViewBag.asignaturaID = new SelectList(db.asignaturas, "asignaturaID", "nombreAsignatura");
+            ViewBag.grupoID = new SelectList(db.grupos, "grupoID", "nombreGrupo");
             ViewBag.profesorID = new SelectList(db.profesores, "profesorID", "nombre");
             return View();
         }
@@ -49,7 +50,7 @@ namespace SistemadeGestionEscolar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "claseID,profesorID,asignaturaID")] Clase clase)
+        public ActionResult Create([Bind(Include = "claseID,profesorID,asignaturaID,grupoID")] Clase clase)
         {
             if (ModelState.IsValid)
             {
@@ -59,6 +60,7 @@ namespace SistemadeGestionEscolar.Controllers
             }
 
             ViewBag.asignaturaID = new SelectList(db.asignaturas, "asignaturaID", "nombreAsignatura", clase.asignaturaID);
+            ViewBag.grupoID = new SelectList(db.grupos, "grupoID", "nombreGrupo", clase.grupoID);
             ViewBag.profesorID = new SelectList(db.profesores, "profesorID", "nombre", clase.profesorID);
             return View(clase);
         }
@@ -76,6 +78,7 @@ namespace SistemadeGestionEscolar.Controllers
                 return HttpNotFound();
             }
             ViewBag.asignaturaID = new SelectList(db.asignaturas, "asignaturaID", "nombreAsignatura", clase.asignaturaID);
+            ViewBag.grupoID = new SelectList(db.grupos, "grupoID", "nombreGrupo", clase.grupoID);
             ViewBag.profesorID = new SelectList(db.profesores, "profesorID", "nombre", clase.profesorID);
             return View(clase);
         }
@@ -85,7 +88,7 @@ namespace SistemadeGestionEscolar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "claseID,profesorID,asignaturaID")] Clase clase)
+        public ActionResult Edit([Bind(Include = "claseID,profesorID,asignaturaID,grupoID")] Clase clase)
         {
             if (ModelState.IsValid)
             {
@@ -94,6 +97,7 @@ namespace SistemadeGestionEscolar.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.asignaturaID = new SelectList(db.asignaturas, "asignaturaID", "nombreAsignatura", clase.asignaturaID);
+            ViewBag.grupoID = new SelectList(db.grupos, "grupoID", "nombreGrupo", clase.grupoID);
             ViewBag.profesorID = new SelectList(db.profesores, "profesorID", "nombre", clase.profesorID);
             return View(clase);
         }

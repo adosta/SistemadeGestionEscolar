@@ -201,9 +201,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201610300238484_Initial.cs" />
-    <Compile Include="Migrations\201610300238484_Initial.Designer.cs">
-      <DependentUpon>201610300238484_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201611071454391_InitialCreate.cs" />
+    <Compile Include="Migrations\201611071454391_InitialCreate.Designer.cs">
+      <DependentUpon>201611071454391_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611071527582_grupoclase.cs" />
+    <Compile Include="Migrations\201611071527582_grupoclase.Designer.cs">
+      <DependentUpon>201611071527582_grupoclase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -295,16 +299,21 @@
     <Content Include="Views\Profesor\Details.cshtml" />
     <Content Include="Views\Profesor\Edit.cshtml" />
     <Content Include="Views\Profesor\Index.cshtml" />
-    <Content Include="Views\Clase\Create.cshtml" />
-    <Content Include="Views\Clase\Delete.cshtml" />
-    <Content Include="Views\Clase\Details.cshtml" />
-    <Content Include="Views\Clase\Edit.cshtml" />
-    <Content Include="Views\Clase\Index.cshtml" />
     <Content Include="Views\Asignatura\Create.cshtml" />
     <Content Include="Views\Asignatura\Delete.cshtml" />
     <Content Include="Views\Asignatura\Details.cshtml" />
     <Content Include="Views\Asignatura\Edit.cshtml" />
     <Content Include="Views\Asignatura\Index.cshtml" />
+    <Content Include="Views\Grupo\Create.cshtml" />
+    <Content Include="Views\Grupo\Delete.cshtml" />
+    <Content Include="Views\Grupo\Details.cshtml" />
+    <Content Include="Views\Grupo\Edit.cshtml" />
+    <Content Include="Views\Grupo\Index.cshtml" />
+    <Content Include="Views\Clase\Create.cshtml" />
+    <Content Include="Views\Clase\Delete.cshtml" />
+    <Content Include="Views\Clase\Details.cshtml" />
+    <Content Include="Views\Clase\Edit.cshtml" />
+    <Content Include="Views\Clase\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -318,8 +327,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201610300238484_Initial.resx">
-      <DependentUpon>201610300238484_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611071454391_InitialCreate.resx">
+      <DependentUpon>201611071454391_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611071527582_grupoclase.resx">
+      <DependentUpon>201611071527582_grupoclase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

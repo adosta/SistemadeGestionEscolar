@@ -1,145 +1,127 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SistemadeGestionEscolar.Models;
-using System.Data.Entity;
-
 
 namespace SistemadeGestionEscolar.Controllers
 {
-
-    [Authorize]
     public class GrupoController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
 
-        ApplicationDbContext db = new ApplicationDbContext();
-
-        [HttpGet]
-        public ActionResult Listar()
+        // GET: Grupo
+        public ActionResult Index()
         {
-            var todosLosGrupos = db.grupos.ToList();
-            return View(todosLosGrupos);
+            return View(db.grupos.ToList());
         }
 
-        [HttpPost]
-        public ActionResult Listar(string nombreBuscado)
+        // GET: Grupo/Details/5
+        public ActionResult Details(int? id)
         {
-            var resultadoDeBusqueda = new List<Grupo>();
-
-            //consultar la lista de alumnos
-            //select * FROM alumnos
-            if (!string.IsNullOrEmpty(nombreBuscado))
+            if (id == null)
             {
-                resultadoDeBusqueda = db.grupos.Where(a => a.nombreGrupo.Contains(nombreBuscado) ||
-                a.carrera.Contains(nombreBuscado)).ToList();
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            else
-            {
-                resultadoDeBusqueda = db.grupos.ToList();
-
-            }
-
-            //pedirle a la lista que muestre los resultados en pantalla
-
-            return View(resultadoDeBusqueda);
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin ,Capturista")]
-        public ActionResult crear()
-        {
-
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult crear(Grupo grupoNuevo)
-        {
-            if (ModelState.IsValid)
-            {
-                db.grupos.Add(grupoNuevo);
-                db.SaveChanges();
-                return RedirectToAction("listar");
-            }
-            ViewBag.MensajeError = "Hubo un error, Favor de verificar los datos";
-            return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public ActionResult eliminar(int id = 0)
-        {
-            var grupo = db.grupos.Find(id);
+            Grupo grupo = db.grupos.Find(id);
             if (grupo == null)
             {
-                return RedirectToAction("listar");
+                return HttpNotFound();
             }
-            else
-            {
-                return View(grupo);
-            }
-
-        }
-
-        [HttpPost]
-        [ActionName("eliminar")]
-        [Authorize(Roles = "Admin")]
-        public ActionResult confirmarEliminar(int grupoID = 0)
-        {
-            var grupo = db.grupos.Find(grupoID);
-
-            if (grupo == null)
-            {
-                return RedirectToAction("listar");
-            }
-
-            db.grupos.Remove(grupo);
-            db.SaveChanges();
-            return RedirectToAction("listar");
-        }
-
-        [HttpGet]
-        [Authorize(Roles = "Admin,Capturista")]
-        public ActionResult editar(int id = 0)
-        {
-            var grupo = db.grupos.Find(id);
-            if (grupo == null)
-            {
-                return RedirectToAction("listar");
-            }
-            //var grupo = db.grupos;
-            //SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
-            //ViewBag.grupoID = grupoID;
             return View(grupo);
         }
 
-        [HttpPost]
-        [Authorize(Roles = "Admin,Capturista")]
-        public ActionResult editar(Grupo grupoEditado)
+        // GET: Grupo/Create
+        public ActionResult Create()
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(grupoEditado).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("listar");
-            }
             return View();
         }
 
-        [Authorize(Roles = "Admin ")]
-        public ActionResult detalles(int id = 0)
+        // POST: Grupo/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "grupoID,nombreGrupo,carrera")] Grupo grupo)
         {
-            var grupos = db.grupos.Find(id);
-
-            if (grupos == null)
+            if (ModelState.IsValid)
             {
-                RedirectToAction("listar");
-
+                db.grupos.Add(grupo);
+                db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            return View(grupos);
+
+            return View(grupo);
         }
 
+        // GET: Grupo/Edit/5
+        public ActionResult Edit(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Grupo grupo = db.grupos.Find(id);
+            if (grupo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(grupo);
+        }
 
+        // POST: Grupo/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "grupoID,nombreGrupo,carrera")] Grupo grupo)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(grupo).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(grupo);
+        }
+
+        // GET: Grupo/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Grupo grupo = db.grupos.Find(id);
+            if (grupo == null)
+            {
+                return HttpNotFound();
+            }
+            return View(grupo);
+        }
+
+        // POST: Grupo/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Grupo grupo = db.grupos.Find(id);
+            db.grupos.Remove(grupo);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
     }
 }
