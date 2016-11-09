@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\AsignaturaController.cs" />
+    <Compile Include="Controllers\CarrerasController.cs" />
     <Compile Include="Controllers\ClaseController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -201,18 +202,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611071454391_InitialCreate.cs" />
-    <Compile Include="Migrations\201611071454391_InitialCreate.Designer.cs">
-      <DependentUpon>201611071454391_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611071527582_grupoclase.cs" />
-    <Compile Include="Migrations\201611071527582_grupoclase.Designer.cs">
-      <DependentUpon>201611071527582_grupoclase.cs</DependentUpon>
+    <Compile Include="Migrations\201611091356557_Initial.cs" />
+    <Compile Include="Migrations\201611091356557_Initial.Designer.cs">
+      <DependentUpon>201611091356557_Initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\Asignatura.cs" />
+    <Compile Include="Models\Carrera.cs" />
     <Compile Include="Models\Clase.cs" />
     <Compile Include="Models\Grupo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -235,6 +233,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -248,7 +247,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -314,6 +315,11 @@
     <Content Include="Views\Clase\Details.cshtml" />
     <Content Include="Views\Clase\Edit.cshtml" />
     <Content Include="Views\Clase\Index.cshtml" />
+    <Content Include="Views\Carreras\Create.cshtml" />
+    <Content Include="Views\Carreras\Delete.cshtml" />
+    <Content Include="Views\Carreras\Details.cshtml" />
+    <Content Include="Views\Carreras\Edit.cshtml" />
+    <Content Include="Views\Carreras\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -327,11 +333,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611071454391_InitialCreate.resx">
-      <DependentUpon>201611071454391_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611071527582_grupoclase.resx">
-      <DependentUpon>201611071527582_grupoclase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611091356557_Initial.resx">
+      <DependentUpon>201611091356557_Initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

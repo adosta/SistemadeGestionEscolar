@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5016.SmarterASP.NET;Initial Catalog=DB_A09568_SistemaGestion;User Id=DB_A09568_SistemaGestion_admin;Password=TICUTPP2016;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexis\\Source\\Repos\\SistemadeGestionEscolar\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=SQL5016.SmarterASP.NET;&#xD;&#xA;    Initial Catalog=DB_A09568_SistemaGestion;&#xD;&#xA;    User Id=DB_A09568_SistemaGestion_admin;&#xD;&#xA;    Password=TICUTPP2016;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexis\\Documents\\Visual\ Studio\ 2015\\Projects\\SistemaGestionRepositori\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
 </parameters>
