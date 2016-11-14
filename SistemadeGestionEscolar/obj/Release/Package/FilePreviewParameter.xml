@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="IIS Web Application Name" description="" value="ticutpp2016-001-site25" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Alexis\\Source\\Repos\\SistemadeGestionEscolar\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Alexis\\Source\\Repos\\SistemadeGestionEscolar\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Alexis\\Documents\\Visual\ Studio\ 2015\\Projects\\SistemaGestionRepositori\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\Alexis\\Documents\\Visual\ Studio\ 2015\\Projects\\SistemaGestionRepositori\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
-  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=sql5016.smarterasp.net;Initial Catalog=DB_A09568_SistemaGestion;User ID=DB_A09568_SistemaGestion_admin;Password=TICUTPP2016" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexis\\Source\\Repos\\SistemadeGestionEscolar\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=SQL5016.SmarterASP.NET;Initial Catalog=DB_A09568_SistemaGestion;User ID=DB_A09568_SistemaGestion_admin;Password=TICUTPP2016" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Alexis\\Documents\\Visual\ Studio\ 2015\\Projects\\SistemaGestionRepositori\\SistemadeGestionEscolar\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
 </parameters>

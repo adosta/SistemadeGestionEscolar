@@ -10,7 +10,6 @@ namespace SistemadeGestionEscolar.Models
     {
         [Key]
         public int numeroMatricula { get; set; }
-
         [Required]
         [MinLength(1)]
         [Display(Name = "Nombre")]
@@ -28,6 +27,7 @@ namespace SistemadeGestionEscolar.Models
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime fechaDeNacimiento { get; set; }
+
 
         [Required]
         [Display(Name = "Grupo")]

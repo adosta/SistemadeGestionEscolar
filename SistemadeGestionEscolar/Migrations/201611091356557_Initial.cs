@@ -3,7 +3,7 @@ namespace SistemadeGestionEscolar.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Initial : DbMigration
     {
         public override void Up()
         {
@@ -28,9 +28,20 @@ namespace SistemadeGestionEscolar.Migrations
                     {
                         grupoID = c.Int(nullable: false, identity: true),
                         nombreGrupo = c.String(),
+                        carreraID = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.grupoID)
+                .ForeignKey("dbo.Carreras", t => t.carreraID, cascadeDelete: true)
+                .Index(t => t.carreraID);
+            
+            CreateTable(
+                "dbo.Carreras",
+                c => new
+                    {
+                        carreraID = c.Int(nullable: false, identity: true),
                         carrera = c.String(),
                     })
-                .PrimaryKey(t => t.grupoID);
+                .PrimaryKey(t => t.carreraID);
             
             CreateTable(
                 "dbo.Clases",
@@ -39,15 +50,15 @@ namespace SistemadeGestionEscolar.Migrations
                         claseID = c.Int(nullable: false, identity: true),
                         profesorID = c.Int(nullable: false),
                         asignaturaID = c.Int(nullable: false),
-                        Grupo_grupoID = c.Int(),
+                        grupoID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.claseID)
                 .ForeignKey("dbo.Asignaturas", t => t.asignaturaID, cascadeDelete: true)
+                .ForeignKey("dbo.Grupoes", t => t.grupoID, cascadeDelete: true)
                 .ForeignKey("dbo.Profesors", t => t.profesorID, cascadeDelete: true)
-                .ForeignKey("dbo.Grupoes", t => t.Grupo_grupoID)
                 .Index(t => t.profesorID)
                 .Index(t => t.asignaturaID)
-                .Index(t => t.Grupo_grupoID);
+                .Index(t => t.grupoID);
             
             CreateTable(
                 "dbo.Asignaturas",
@@ -146,9 +157,10 @@ namespace SistemadeGestionEscolar.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Clases", "Grupo_grupoID", "dbo.Grupoes");
             DropForeignKey("dbo.Clases", "profesorID", "dbo.Profesors");
+            DropForeignKey("dbo.Clases", "grupoID", "dbo.Grupoes");
             DropForeignKey("dbo.Clases", "asignaturaID", "dbo.Asignaturas");
+            DropForeignKey("dbo.Grupoes", "carreraID", "dbo.Carreras");
             DropForeignKey("dbo.Alumnoes", "grupoID", "dbo.Grupoes");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -156,9 +168,10 @@ namespace SistemadeGestionEscolar.Migrations
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
-            DropIndex("dbo.Clases", new[] { "Grupo_grupoID" });
+            DropIndex("dbo.Clases", new[] { "grupoID" });
             DropIndex("dbo.Clases", new[] { "asignaturaID" });
             DropIndex("dbo.Clases", new[] { "profesorID" });
+            DropIndex("dbo.Grupoes", new[] { "carreraID" });
             DropIndex("dbo.Alumnoes", new[] { "grupoID" });
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
@@ -168,6 +181,7 @@ namespace SistemadeGestionEscolar.Migrations
             DropTable("dbo.Profesors");
             DropTable("dbo.Asignaturas");
             DropTable("dbo.Clases");
+            DropTable("dbo.Carreras");
             DropTable("dbo.Grupoes");
             DropTable("dbo.Alumnoes");
         }
