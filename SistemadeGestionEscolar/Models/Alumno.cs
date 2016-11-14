@@ -33,5 +33,7 @@ namespace SistemadeGestionEscolar.Models
         [Display(Name = "Grupo")]
         public int grupoID { get; set; }
         virtual public Grupo grupo { get; set; }
+
+        public virtual ICollection<Calificacion> calificaciones { get; set; }
     }
 }
