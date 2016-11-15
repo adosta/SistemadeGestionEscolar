@@ -11,7 +11,7 @@ namespace SistemadeGestionEscolar.Models
     {
         [Key]
         public int carreraID { get; set; }
-        public String carrera { get; set; }
+        public String NombreCarrera { get; set; }
 
 
         public virtual ICollection<Grupo> grupo { get; set; }

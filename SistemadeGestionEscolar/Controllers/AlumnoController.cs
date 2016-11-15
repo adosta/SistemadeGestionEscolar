@@ -60,12 +60,15 @@ namespace SistemadeGestionEscolar.Controllers
         //[Authorize(Roles = "Admin ,Capturista")]
         public ActionResult crear()
         {
-            var grupos = db.grupos;
-            SelectList grupoID = new SelectList(grupos, "grupoID", "nombreGrupo");
+            var carreras = db.carreras;
+            SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
 
-            ViewBag.grupoID = grupoID;
+            ViewBag.carreraID = carreraID;
             return View();
+
+
         }
+
 
         [HttpPost]
         public ActionResult crear(Alumno alumnoNuevo, bool enDetallesDeGrupo = false)
@@ -95,10 +98,10 @@ namespace SistemadeGestionEscolar.Controllers
             }
             ViewBag.MensajeError = "Hubo un error,Favor de verificar la informacion";
 
-            var grupos = db.grupos;
-            SelectList grupoID = new SelectList(grupos, "grupoID", "nombreGrupo");
+            var carreras = db.carreras;
+            SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
 
-            ViewBag.grupoID = grupoID;
+            ViewBag.carreraID = carreraID;
             return View();
         }
 

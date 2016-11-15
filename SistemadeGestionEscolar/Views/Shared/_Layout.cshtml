@@ -26,15 +26,15 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Preinscripcion", "Crear", "alumno")</li>
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
+                    @*@if (User.Identity.IsAuthenticated)
+                    {*@
                         <li>@Html.ActionLink("Alumno", "listar", "alumno")</li>
                         <li>@Html.ActionLink("Carreras", "Index", "carreras")</li>
                         <li>@Html.ActionLink("Grupo", "Index", "grupo")</li>
                         <li>@Html.ActionLink("Clases", "Index", "clase")</li>
                         <li>@Html.ActionLink("Asignatura", "Index", "asignatura")</li>
                         <li>@Html.ActionLink("Profesor", "Index", "profesor")</li>
-                    }
+                    @*}*@
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

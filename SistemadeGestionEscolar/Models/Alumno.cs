@@ -23,15 +23,16 @@ namespace SistemadeGestionEscolar.Models
         [Display(Name = "Apellido Materno")]
         public string apellidoMaterno { get; set; }
 
+
         [Required]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         [DataType(DataType.Date)]
         public DateTime fechaDeNacimiento { get; set; }
 
 
-        [Required]
+        
         [Display(Name = "Grupo")]
-        public int grupoID { get; set; }
+        public int? grupoID { get; set; }
         virtual public Grupo grupo { get; set; }
     }
 }

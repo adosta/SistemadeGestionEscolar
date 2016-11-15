@@ -12,16 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.carrera)
+            @Html.DisplayNameFor(model => model.NombreCarrera)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.carrera)
+            @Html.DisplayFor(model => model.NombreCarrera)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.carreraID }) |
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.carreraID })
+
     @Html.ActionLink("Back to List", "Index")
+
 </p>

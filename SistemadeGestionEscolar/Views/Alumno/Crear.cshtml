@@ -52,11 +52,11 @@
     <div class="row">
         <div class="form-group col-sm-12">
 
-            @Html.LabelFor(alumno => alumno.grupo.nombreGrupo, new { @class = "control-label" })
+            @Html.LabelFor(alumno => alumno.grupo.carrera, new { @class = "control-label" })
 
             <div>
 
-                @Html.DropDownList("grupoID", null, new { @class = "form-control" })
+                @Html.DropDownList("carreraID",null, new { @class = "form-control" })
 
             </div>
         </div>

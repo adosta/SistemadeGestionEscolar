@@ -5,6 +5,9 @@ namespace SistemadeGestionEscolar.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
+
+
+
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -79,6 +82,31 @@ namespace SistemadeGestionEscolar.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        
+        public string nombre { get; set; }
+
+        [Required]
+        [Display(Name = "ApellidoPaterno")]
+        
+        public string apellidoPaterno { get; set; }
+
+        [Required]
+        [Display(Name = "ApellidoMaterno")]
+       
+        public string apellidoMaterno { get; set; }
+
+        [Required]
+        [Display(Name = "Especialidad")]
+        
+        public string especialidad { get; set; }
+
+        [Required]
+        [Display(Name = "Grado")]
+     
+        public string grado { get; set; }
     }
 
     public class ResetPasswordViewModel
