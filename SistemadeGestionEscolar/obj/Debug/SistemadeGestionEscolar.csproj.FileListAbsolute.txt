@@ -210,3 +210,4 @@ C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.registro.resources
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.roles.resources
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.calificacion.resources

@@ -214,6 +214,10 @@
     <Compile Include="Migrations\201611161513023_roles.Designer.cs">
       <DependentUpon>201611161513023_roles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611162040060_calificacion.cs" />
+    <Compile Include="Migrations\201611162040060_calificacion.Designer.cs">
+      <DependentUpon>201611162040060_calificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
@@ -350,6 +354,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611161513023_roles.resx">
       <DependentUpon>201611161513023_roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611162040060_calificacion.resx">
+      <DependentUpon>201611162040060_calificacion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

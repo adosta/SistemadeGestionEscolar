@@ -20,6 +20,6 @@ namespace SistemadeGestionEscolar.Models
         virtual public Alumno alumno { get; set; }
 
         public int claseID { get; set; }
-        virtual public Profesor clase { get; set; }
+        virtual public Clase clase { get; set; }
     }
 }
