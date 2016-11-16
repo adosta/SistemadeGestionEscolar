@@ -79,6 +79,30 @@ namespace SistemadeGestionEscolar.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [Display(Name = "Nombre")]
+        public string nombre { get; set; }
+
+        [Required]
+        [Display(Name = "Apellido Paterno")]
+        public string apellidoPaterno { get; set; }
+
+        [Required]
+        [Display(Name = "Apellido Materno")]
+        public string apellidoMaterno { get; set; }
+
+        [Required]
+        [Display(Name = "Especialidad")]
+        public string especialidad { get; set; }
+
+        [Required]
+        [Display(Name = "Grado")]
+        public string grado { get; set; }
+
+        [Required]
+        [Display(Name = "Rol")]
+        public string rol { get; set; }
     }
 
     public class ResetPasswordViewModel

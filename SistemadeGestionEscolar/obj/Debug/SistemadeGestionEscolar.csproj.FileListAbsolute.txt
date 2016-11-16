@@ -135,9 +135,6 @@ C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.InitialCreate.resources
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
-C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.grupoclase.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\bin\ApplicationInsights.config
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\bin\SistemadeGestionEscolar.dll.config
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\bin\SistemadeGestionEscolar.dll
@@ -208,3 +205,8 @@ C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\S
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.Initial.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.initial.resources
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.registro.resources
+C:\Users\adria\Source\Repos\SistemadeGestionEscolar\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.roles.resources
