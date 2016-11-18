@@ -1,0 +1,67 @@
+﻿@model SistemadeGestionEscolar.Models.Calificacion
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Calificacion</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.alumno.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.alumno.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clase.claseID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clase.claseID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parcial1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parcial1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parcial2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parcial2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.parcial3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.parcial3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.final)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.calificacionID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

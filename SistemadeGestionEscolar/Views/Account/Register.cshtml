@@ -12,7 +12,7 @@
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
 
-    <fieldset>
+    <fieldset id="fsProfesor">
         <legend>Datos de profesor</legend>
         <div class="form-group">
             @Html.LabelFor(m => m.nombre, new { @class = "col-md-2 control-label" })
@@ -47,7 +47,7 @@
 
     </fieldset>
 
-    <fieldset>
+    <fieldset id="fsUsuario">
         <legend>Datos de usuario</legend>
         <div class="form-group">
             <label for="" class="col-md-2 control-label">Rol</label>
@@ -89,4 +89,23 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    <script>
+        $('#rol').change(function () {
+            //detectar que se selecciono el usuario
+            var valorSeleccionado = $(this).find(':selected').text()
+
+            //so fue el profesor aparecer el panel
+            if (valorSeleccionado == "Profesor") {
+                //alert('Haz realizado un cambio');
+                $("#fsProfesor").slideDown();
+            } else {
+                $("#fsProfesor").slideUp();
+            }
+
+            //si no, desaparecer el panel
+        });
+    </script>
 }
+
+

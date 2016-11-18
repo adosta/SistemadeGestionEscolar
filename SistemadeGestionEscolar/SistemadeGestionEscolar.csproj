@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\AsignaturaController.cs" />
+    <Compile Include="Controllers\CalificacionController.cs" />
     <Compile Include="Controllers\CarrerasController.cs" />
     <Compile Include="Controllers\ClaseController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
@@ -214,9 +215,9 @@
     <Compile Include="Migrations\201611161513023_roles.Designer.cs">
       <DependentUpon>201611161513023_roles.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611162040060_calificacion.cs" />
-    <Compile Include="Migrations\201611162040060_calificacion.Designer.cs">
-      <DependentUpon>201611162040060_calificacion.cs</DependentUpon>
+    <Compile Include="Migrations\201611162057129_calificacion.cs" />
+    <Compile Include="Migrations\201611162057129_calificacion.Designer.cs">
+      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -333,6 +334,11 @@
     <Content Include="Views\Carreras\Details.cshtml" />
     <Content Include="Views\Carreras\Edit.cshtml" />
     <Content Include="Views\Carreras\Index.cshtml" />
+    <Content Include="Views\Calificacion\Create.cshtml" />
+    <Content Include="Views\Calificacion\Delete.cshtml" />
+    <Content Include="Views\Calificacion\Details.cshtml" />
+    <Content Include="Views\Calificacion\Edit.cshtml" />
+    <Content Include="Views\Calificacion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -355,8 +361,8 @@
     <EmbeddedResource Include="Migrations\201611161513023_roles.resx">
       <DependentUpon>201611161513023_roles.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611162040060_calificacion.resx">
-      <DependentUpon>201611162040060_calificacion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611162057129_calificacion.resx">
+      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

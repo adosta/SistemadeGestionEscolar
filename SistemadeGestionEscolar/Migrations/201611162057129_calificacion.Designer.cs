@@ -13,7 +13,7 @@ namespace SistemadeGestionEscolar.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611162040060_calificacion"; }
+            get { return "201611162057129_calificacion"; }
         }
         
         string IMigrationMetadata.Source
