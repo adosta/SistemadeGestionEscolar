@@ -339,6 +339,7 @@
     <Content Include="Views\Calificacion\Details.cshtml" />
     <Content Include="Views\Calificacion\Edit.cshtml" />
     <Content Include="Views\Calificacion\Index.cshtml" />
+    <Content Include="Views\Profesor\asignarCalificaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
