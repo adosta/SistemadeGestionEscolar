@@ -12,8 +12,7 @@ using SistemadeGestionEscolar.Models;
 
 namespace SistemadeGestionEscolar.Controllers
 {
-    
-     [Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
@@ -156,8 +155,9 @@ namespace SistemadeGestionEscolar.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    //Se le asigna un rol
                     UserManager.AddToRole(user.Id, model.rol);
-
+                    //Entra automaticamente al sistema
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
@@ -485,5 +485,4 @@ namespace SistemadeGestionEscolar.Controllers
         }
         #endregion
     }
-
 }

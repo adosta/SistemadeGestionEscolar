@@ -5,9 +5,6 @@ namespace SistemadeGestionEscolar.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-
-
-
         [Required]
         [Display(Name = "Email")]
         public string Email { get; set; }
@@ -85,32 +82,26 @@ namespace SistemadeGestionEscolar.Models
 
         [Required]
         [Display(Name = "Nombre")]
-        
         public string nombre { get; set; }
 
         [Required]
-        [Display(Name = "ApellidoPaterno")]
-        
+        [Display(Name = "Apellido Paterno")]
         public string apellidoPaterno { get; set; }
 
         [Required]
-        [Display(Name = "ApellidoMaterno")]
-       
+        [Display(Name = "Apellido Materno")]
         public string apellidoMaterno { get; set; }
 
         [Required]
         [Display(Name = "Especialidad")]
-        
         public string especialidad { get; set; }
 
         [Required]
         [Display(Name = "Grado")]
-     
         public string grado { get; set; }
 
         [Required]
         [Display(Name = "Rol")]
-
         public string rol { get; set; }
     }
 

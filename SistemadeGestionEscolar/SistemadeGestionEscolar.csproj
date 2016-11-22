@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlumnoController.cs" />
     <Compile Include="Controllers\AsignaturaController.cs" />
+    <Compile Include="Controllers\CalificacionController.cs" />
     <Compile Include="Controllers\CarrerasController.cs" />
     <Compile Include="Controllers\ClaseController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
@@ -202,9 +203,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611091356557_Initial.cs" />
-    <Compile Include="Migrations\201611091356557_Initial.Designer.cs">
-      <DependentUpon>201611091356557_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201611151926406_initial.cs" />
+    <Compile Include="Migrations\201611151926406_initial.Designer.cs">
+      <DependentUpon>201611151926406_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611161506452_registro.cs" />
+    <Compile Include="Migrations\201611161506452_registro.Designer.cs">
+      <DependentUpon>201611161506452_registro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611161513023_roles.cs" />
+    <Compile Include="Migrations\201611161513023_roles.Designer.cs">
+      <DependentUpon>201611161513023_roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611162057129_calificacion.cs" />
+    <Compile Include="Migrations\201611162057129_calificacion.Designer.cs">
+      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201611141904046_CambioUno.cs" />
     <Compile Include="Migrations\201611141904046_CambioUno.Designer.cs">
@@ -349,6 +362,12 @@
     <Content Include="Views\Carreras\Details.cshtml" />
     <Content Include="Views\Carreras\Edit.cshtml" />
     <Content Include="Views\Carreras\Index.cshtml" />
+    <Content Include="Views\Calificacion\Create.cshtml" />
+    <Content Include="Views\Calificacion\Delete.cshtml" />
+    <Content Include="Views\Calificacion\Details.cshtml" />
+    <Content Include="Views\Calificacion\Edit.cshtml" />
+    <Content Include="Views\Calificacion\Index.cshtml" />
+    <Content Include="Views\Profesor\asignarCalificaciones.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -362,8 +381,17 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611091356557_Initial.resx">
-      <DependentUpon>201611091356557_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611151926406_initial.resx">
+      <DependentUpon>201611151926406_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611161506452_registro.resx">
+      <DependentUpon>201611161506452_registro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611161513023_roles.resx">
+      <DependentUpon>201611161513023_roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611162057129_calificacion.resx">
+      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611141904046_CambioUno.resx">
       <DependentUpon>201611141904046_CambioUno.cs</DependentUpon>
