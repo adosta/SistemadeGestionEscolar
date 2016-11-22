@@ -48,6 +48,14 @@
             @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
         </div>
 
+        <div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.carreraPreferida, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.carreraPreferida, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.carreraPreferida, "", new { @class = "error" })
+        </div>
+
     </div>
 
     <div class="row">
@@ -57,7 +65,7 @@
 
             <div>
 
-                @Html.DropDownList("grupoID", null, new { @class = "form-control" })
+              @Html.DropDownList("grupoID", null, new { @class = "form-control" })
 
             </div>
         </div>

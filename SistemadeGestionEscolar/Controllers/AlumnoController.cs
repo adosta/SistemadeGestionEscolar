@@ -57,13 +57,13 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin ,Capturista")]
+        
         public ActionResult crear()
         {
             var carreras = db.carreras;
-            SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
+            SelectList carreraID = new SelectList(carreras, "NombreCarrera", "NombreCarrera");
 
-            ViewBag.carreraID = carreraID;
+            ViewBag.carreraPreferida = carreraID;
             return View();
 
 
@@ -164,6 +164,11 @@ namespace SistemadeGestionEscolar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("listar");
             }
+
+            var grupo = db.grupos;
+            SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");
+            ViewBag.grupoID = grupoID;
+           
             return View();
         }
 

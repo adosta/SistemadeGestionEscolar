@@ -29,8 +29,11 @@ namespace SistemadeGestionEscolar.Models
         [DataType(DataType.Date)]
         public DateTime fechaDeNacimiento { get; set; }
 
+        [Required]
+        [Display(Name = "Carrera Preferida")]
+        public string carreraPreferida { get; set; }
 
-        
+
         [Display(Name = "Grupo")]
         public int? grupoID { get; set; }
         virtual public Grupo grupo { get; set; }

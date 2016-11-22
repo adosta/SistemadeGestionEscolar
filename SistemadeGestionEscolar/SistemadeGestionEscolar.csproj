@@ -226,6 +226,14 @@
     <Compile Include="Migrations\201611150114482_CambioCinco.Designer.cs">
       <DependentUpon>201611150114482_CambioCinco.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611152036339_CambioSeis.cs" />
+    <Compile Include="Migrations\201611152036339_CambioSeis.Designer.cs">
+      <DependentUpon>201611152036339_CambioSeis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611152044158_CambioSiete.cs" />
+    <Compile Include="Migrations\201611152044158_CambioSiete.Designer.cs">
+      <DependentUpon>201611152044158_CambioSiete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
@@ -371,6 +379,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611150114482_CambioCinco.resx">
       <DependentUpon>201611150114482_CambioCinco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611152036339_CambioSeis.resx">
+      <DependentUpon>201611152036339_CambioSeis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611152044158_CambioSiete.resx">
+      <DependentUpon>201611152044158_CambioSiete.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,13 +16,19 @@
     @Html.ActionLink("Crear Nuevo Alumno", "crear")
 }
 
+
+
+
+
     <table class="table table-striped table-hover">
         <tr>
             <th>Nombre</th>
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
-            @*<th>Fecha de Nacimiento</th>*@
+            <th>Fecha de Nacimiento</th>
             <th>Carrera</th>
+            
+           
 
         </tr>
 
@@ -33,8 +39,11 @@
                 <td>@alumno.nombre</td>
                 <td>@alumno.apellidoPaterno</td>
                 <td>@alumno.apellidoMaterno</td>
-                @*<td>@alumno.fechaDeNacimiento.ToLongDateString()</td>*@
-                <td>@alumno.grupo.nombreGrupo</td>
+                <td>@alumno.fechaDeNacimiento.ToLongDateString()</td>
+                <td>@alumno.carreraPreferida</td>
+               
+               
+                
 
 
 
@@ -47,13 +56,13 @@
                 @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
                 {
                     <td>@Html.ActionLink("Detalles", "DetallesAlumno", new { id = alumno.numeroMatricula })</td>
+
                     <td>@Html.ActionLink("Editar", "editar", new { id = alumno.numeroMatricula })</td>
 
-
-
-
-                    <td><button class="btn btn-primary" type="submit" value="Enviar">INSCRIBIR</button></td>
+                    <td> @Html.ActionLink("Inscribir", "editar", "Alumno", new { @id = alumno.numeroMatricula }, new { @class = "btn btn-primary" })</td>
                 }
+               
+                
             </tr>
 
         }

@@ -46,7 +46,7 @@ namespace SistemadeGestionEscolar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "carreraID,carrera")] Carrera carrera)
+        public ActionResult Create([Bind(Include = "carreraID,NombreCarrera")] Carrera carrera)
         {
             if (ModelState.IsValid)
             {
@@ -123,5 +123,9 @@ namespace SistemadeGestionEscolar.Controllers
             }
             base.Dispose(disposing);
         }
+
+       
+      
+
     }
 }

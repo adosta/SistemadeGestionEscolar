@@ -46,17 +46,17 @@
             </div>
             @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
         </div>
-
+   
     </div>
 
     <div class="row">
         <div class="form-group col-sm-12">
 
-            @Html.LabelFor(alumno => alumno.grupo.nombreGrupo, new { @class = "control-label" })
+            @Html.LabelFor(alumno => alumno.grupo.carrera, new { @class = "control-label" })
 
             <div>
 
-                @Html.DropDownList("grupoID", null, new { @class = "form-control" })
+                @Html.DropDownList("carreraPreferida",null, new { @class = "form-control" })
 
             </div>
         </div>

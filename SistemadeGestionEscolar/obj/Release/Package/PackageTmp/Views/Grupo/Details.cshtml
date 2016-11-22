@@ -7,28 +7,64 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Grupo</h4>
+
+    <h4>Grupo   @Html.DisplayFor(model => model.nombreGrupo)</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreGrupo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreGrupo)
-        </dd>
+<h4>CLASES</h4>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.carrera)
-        </dt>
+<table class="table table-striped table-hover">
 
-        <dd>
-            @Html.DisplayFor(model => model.carrera)
-        </dd>
+    <tr>
+        <th>Nombre De Clase</th>
+        <th>Nombre De Profesor</th>
 
-    </dl>
-</div>
+    </tr>
+   
+    @foreach (var clases in Model.clases)
+    {
+        <tr>
+
+            <td>@(clases.asignatura.nombreAsignatura)</td>
+            <td>@(clases.profesor.nombre)</td>
+
+
+            <td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { id = clases.claseID }, null)  </td>
+            <td>@Html.ActionLink("Editar", "editar", "Alumno", new { id = clases.claseID }, null)  </td>
+            <td>@Html.ActionLink("Detalles", "../clase/details", new { id = clases.claseID })</td>
+
+        </tr>
+    }
+
+</table>
+
+
+<h4>Alumnos</h4>
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>Nombre Completo</th>
+
+        <th>Fecha de nacimiento</th>
+       
+        <th></th>
+    </tr>
+    @foreach (var alumno in Model.alumnos)
+    {
+        <tr>
+
+            <td>@(alumno.nombre + " " + alumno.apellidoPaterno + " " + alumno.apellidoMaterno)</td>
+            <td>@alumno.fechaDeNacimiento</td>
+           
+            <td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { id = alumno.numeroMatricula }, null)  </td>
+            <td>@Html.ActionLink("Editar", "editar", "Alumno", new { id = alumno.numeroMatricula }, null)  </td>
+        </tr>
+    }
+
+
+</table>
+
+  
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.grupoID }) |
     @Html.ActionLink("Back to List", "Index")

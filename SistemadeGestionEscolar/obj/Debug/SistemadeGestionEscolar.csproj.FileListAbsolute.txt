@@ -213,3 +213,5 @@ C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\S
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioTres.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioCuatro.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioCinco.resources
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioSeis.resources
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioSiete.resources

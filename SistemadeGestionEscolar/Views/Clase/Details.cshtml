@@ -37,6 +37,22 @@
 
     </dl>
 </div>
+
+@foreach (var calificacion in Model.calificacion)
+{
+    <tr>
+
+        <td>@calificacion.alumno.nombre</td>
+        
+
+
+        @*<td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { id = clases.claseID }, null)  </td>
+        <td>@Html.ActionLink("Editar", "editar", "Alumno", new { id = clases.claseID }, null)  </td>
+        <td>@Html.ActionLink("Detalles", "../clase/details", new { id = clases.claseID })</td>*@
+
+    </tr>
+}
+
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.claseID }) |
     @Html.ActionLink("Volver a la lista", "Index")

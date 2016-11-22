@@ -107,6 +107,11 @@ namespace SistemadeGestionEscolar.Models
         [Display(Name = "Grado")]
      
         public string grado { get; set; }
+
+        [Required]
+        [Display(Name = "Rol")]
+
+        public string rol { get; set; }
     }
 
     public class ResetPasswordViewModel

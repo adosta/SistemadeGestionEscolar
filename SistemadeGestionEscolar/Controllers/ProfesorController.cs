@@ -15,6 +15,7 @@ namespace SistemadeGestionEscolar.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Profesor
+
         public ActionResult Index()
         {
             return View(db.profesores.ToList());
