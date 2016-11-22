@@ -230,6 +230,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
     <Compile Include="Models\Asignatura.cs" />
+    <Compile Include="Models\Calificacion.cs" />
     <Compile Include="Models\Carrera.cs" />
     <Compile Include="Models\Clase.cs" />
     <Compile Include="Models\Grupo.cs" />

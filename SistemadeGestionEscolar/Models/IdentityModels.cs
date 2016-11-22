@@ -57,6 +57,8 @@ namespace SistemadeGestionEscolar.Models
         public DbSet<Clase> clases { get; set; }
         public DbSet<Asignatura> asignaturas { get; set; }
         public DbSet<Carrera> carreras { get; set; }
+        public DbSet<Calificacion> calificaciones { get; set; }
+
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

@@ -30,5 +30,6 @@ namespace SistemadeGestionEscolar.Models
         public DateTime fechaDeNacimiento { get; set; }
 
         public virtual ICollection<Clase> clase { get; set; }
+        
     }
 }
