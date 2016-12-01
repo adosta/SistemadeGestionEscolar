@@ -45,6 +45,20 @@
 
     </dl>
 </div>
+
+
+
+@foreach (var asignatura in Model.clase)
+{
+    <tr>
+
+        <td>@(asignatura.asignatura.nombreAsignatura)</td>
+  
+    </tr>
+}
+
+
+
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.profesorID }) |
     @Html.ActionLink("Volver a la lista", "Index")

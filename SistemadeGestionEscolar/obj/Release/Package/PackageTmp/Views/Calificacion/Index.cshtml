@@ -1,0 +1,64 @@
+﻿@model IEnumerable<SistemadeGestionEscolar.Models.Calificacion>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.alumno.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clase.claseID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parcial1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parcial2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.parcial3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.final)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.alumno.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clase.claseID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parcial1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parcial2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.parcial3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.final)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.calificacionID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.calificacionID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.calificacionID })
+        </td>
+    </tr>
+}
+
+</table>

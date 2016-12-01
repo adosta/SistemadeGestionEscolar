@@ -6,30 +6,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SistemadeGestionEscolar.Models
 {
-    public class Alumno
+    public class Alumno: ApplicationUser
     {
-        [Key]
-        public int numeroMatricula { get; set; }
-        [Required]
-        [MinLength(1)]
-        [Display(Name = "Nombre")]
-        public string nombre { get; set; }
-
-        [Required]
-        [Display(Name = "Apellido Paterno")]
-        public string apellidoPaterno { get; set; }
-
-        [Required]
-        [Display(Name = "Apellido Materno")]
-        public string apellidoMaterno { get; set; }
 
 
-        [Required]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [DataType(DataType.Date)]
-        public DateTime fechaDeNacimiento { get; set; }
-
-        [Required]
+        
         [Display(Name = "Carrera Preferida")]
         public string carreraPreferida { get; set; }
 
@@ -39,5 +20,22 @@ namespace SistemadeGestionEscolar.Models
         virtual public Grupo grupo { get; set; }
 
         public virtual ICollection<Calificacion> calificaciones { get; set; }
+
+        public Alumno(RegisterViewModel model)
+        {
+            this.UserName = model.Email;
+            this.Email = model.Email;
+            this.nombre = model.nombre;
+            this.apellidoPaterno = model.apellidoPaterno;
+            this.apellidoMaterno = model.apellidoMaterno;
+            this.fechaDeNacimiento = model.fechaDeNacimiento;
+            this.rol = model.rol;
+            this.carreraPreferida = model.carreraPreferida;
+            //this.grupo.nombreGrupo = model.grupoID;
+        }
+        public Alumno()
+        {
+
+        }
     }
 }

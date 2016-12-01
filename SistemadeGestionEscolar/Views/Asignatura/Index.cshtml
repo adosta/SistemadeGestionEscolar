@@ -10,26 +10,59 @@
 <p>
     @Html.ActionLink("Agregar asignatura", "Create")
 </p>
-<table class="table" id="myTable">
 
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreAsignatura)
-        </th>
-        <th></th>
-    </tr>
+<table id="myTable" class="table table-hover">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreAsignatura)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.asignaturaID }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.asignaturaID }) |
-            @Html.ActionLink("Borrar", "Delete", new { id=item.asignaturaID })
-        </td>
-    </tr>
-}
+    <thead>
+        <tr>
+            <th>Nombre de Asignatura</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
 
+
+                <td>@item.nombreAsignatura</td>
+
+                <td>
+                    @Html.ActionLink("Delete", "Delete", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>
+
+<style>
+    tr.even {
+        background-color: #e6e6e6 !important;
+    }
+</style>
+
+<link href="//cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/responsive.jqueryui.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $("#myTable").DataTable();
+            });
+
+    </script>
+}

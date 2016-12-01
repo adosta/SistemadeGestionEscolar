@@ -16,7 +16,7 @@ namespace SistemadeGestionEscolar.Controllers
         [Authorize(Roles = "Admin ,Caturista")]
         public ActionResult Listar(string nombreBuscado)
         {
-            var resultadoDeBusqueda = new List<Alumno>();
+            var resultadoDeBusqueda = new List<ApplicationUser>();
 
             //consultar la lista de alumnos
             //select * FROM alumnos
@@ -26,13 +26,13 @@ namespace SistemadeGestionEscolar.Controllers
                 //|| a.apellidoMaterno == nombreBuscado).ToList();
 
                 //resultadoDeBusqueda = db.alumnos.Where(a => (a.apellidoPaterno + a.apellidoMaterno + a.nombre).Contains(nombreBuscado)).ToList();
-                resultadoDeBusqueda = db.alumnos.Where(a => a.apellidoMaterno.Contains(nombreBuscado) ||
+                resultadoDeBusqueda = db.Users.Where(a => a.apellidoMaterno.Contains(nombreBuscado) ||
                 a.apellidoMaterno.Contains(nombreBuscado) ||
                 a.nombre.Contains(nombreBuscado)).ToList();
             }
             else
             {
-                resultadoDeBusqueda = db.alumnos.ToList();
+                resultadoDeBusqueda = db.Users.ToList();
 
             }
 

@@ -58,7 +58,7 @@ namespace SistemadeGestionEscolar.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.numeroMatricula);
+            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }
@@ -75,7 +75,7 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.numeroMatricula);
+            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }
@@ -93,7 +93,7 @@ namespace SistemadeGestionEscolar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.numeroMatricula);
+            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }

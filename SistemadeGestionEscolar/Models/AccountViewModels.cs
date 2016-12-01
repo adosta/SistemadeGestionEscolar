@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace SistemadeGestionEscolar.Models
@@ -80,29 +81,39 @@ namespace SistemadeGestionEscolar.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        
         [Display(Name = "Nombre")]
         public string nombre { get; set; }
 
-        [Required]
+      
         [Display(Name = "Apellido Paterno")]
         public string apellidoPaterno { get; set; }
 
-        [Required]
+        
         [Display(Name = "Apellido Materno")]
         public string apellidoMaterno { get; set; }
 
-        [Required]
+       
         [Display(Name = "Especialidad")]
         public string especialidad { get; set; }
 
-        [Required]
+       
         [Display(Name = "Grado")]
         public string grado { get; set; }
 
-        [Required]
+        [Display(Name = "Carrera Preferida")]
+        public string carreraPreferida { get; set; }
+
+        [Display(Name = "grupoID")]
+        public string grupoID { get; set; }
+
+
         [Display(Name = "Rol")]
         public string rol { get; set; }
+
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DataType(DataType.Date)]
+        public DateTime fechaDeNacimiento { get; set; }
     }
 
     public class ResetPasswordViewModel

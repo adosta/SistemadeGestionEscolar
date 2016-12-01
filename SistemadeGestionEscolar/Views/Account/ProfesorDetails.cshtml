@@ -1,0 +1,85 @@
+﻿@model SistemadeGestionEscolar.Models.Profesor
+
+@{
+    ViewBag.Title = "ProfesorDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProfesorDetails</h2>
+
+<div>
+    <h4>Profesor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoPaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoPaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoMaterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoMaterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.especialidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.especialidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.grado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.grado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "IndexProfesor")
+</p>

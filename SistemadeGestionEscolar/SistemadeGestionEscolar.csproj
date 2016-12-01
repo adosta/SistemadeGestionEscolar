@@ -203,49 +203,41 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611151926406_initial.cs" />
-    <Compile Include="Migrations\201611151926406_initial.Designer.cs">
-      <DependentUpon>201611151926406_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201611241820242_Initial.cs" />
+    <Compile Include="Migrations\201611241820242_Initial.Designer.cs">
+      <DependentUpon>201611241820242_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611161506452_registro.cs" />
-    <Compile Include="Migrations\201611161506452_registro.Designer.cs">
-      <DependentUpon>201611161506452_registro.cs</DependentUpon>
+    <Compile Include="Migrations\201611241840325_CambioUno.cs" />
+    <Compile Include="Migrations\201611241840325_CambioUno.Designer.cs">
+      <DependentUpon>201611241840325_CambioUno.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611161513023_roles.cs" />
-    <Compile Include="Migrations\201611161513023_roles.Designer.cs">
-      <DependentUpon>201611161513023_roles.cs</DependentUpon>
+    <Compile Include="Migrations\201611241847022_CambioDos.cs" />
+    <Compile Include="Migrations\201611241847022_CambioDos.Designer.cs">
+      <DependentUpon>201611241847022_CambioDos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611162057129_calificacion.cs" />
-    <Compile Include="Migrations\201611162057129_calificacion.Designer.cs">
-      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
+    <Compile Include="Migrations\201611270224508_CampoTres.cs" />
+    <Compile Include="Migrations\201611270224508_CampoTres.Designer.cs">
+      <DependentUpon>201611270224508_CampoTres.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611141904046_CambioUno.cs" />
-    <Compile Include="Migrations\201611141904046_CambioUno.Designer.cs">
-      <DependentUpon>201611141904046_CambioUno.cs</DependentUpon>
+    <Compile Include="Migrations\201611272134548_CambioCuatro.cs" />
+    <Compile Include="Migrations\201611272134548_CambioCuatro.Designer.cs">
+      <DependentUpon>201611272134548_CambioCuatro.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611142200101_CambioDos.cs" />
-    <Compile Include="Migrations\201611142200101_CambioDos.Designer.cs">
-      <DependentUpon>201611142200101_CambioDos.cs</DependentUpon>
+    <Compile Include="Migrations\201611282005347_CambioCinco.cs" />
+    <Compile Include="Migrations\201611282005347_CambioCinco.Designer.cs">
+      <DependentUpon>201611282005347_CambioCinco.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611142217003_CambioTres.cs" />
-    <Compile Include="Migrations\201611142217003_CambioTres.Designer.cs">
-      <DependentUpon>201611142217003_CambioTres.cs</DependentUpon>
+    <Compile Include="Migrations\201611282017242_CambioSeis.cs" />
+    <Compile Include="Migrations\201611282017242_CambioSeis.Designer.cs">
+      <DependentUpon>201611282017242_CambioSeis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611142235251_CambioCuatro.cs" />
-    <Compile Include="Migrations\201611142235251_CambioCuatro.Designer.cs">
-      <DependentUpon>201611142235251_CambioCuatro.cs</DependentUpon>
+    <Compile Include="Migrations\201611282053590_CambioSiete.cs" />
+    <Compile Include="Migrations\201611282053590_CambioSiete.Designer.cs">
+      <DependentUpon>201611282053590_CambioSiete.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611150114482_CambioCinco.cs" />
-    <Compile Include="Migrations\201611150114482_CambioCinco.Designer.cs">
-      <DependentUpon>201611150114482_CambioCinco.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611152036339_CambioSeis.cs" />
-    <Compile Include="Migrations\201611152036339_CambioSeis.Designer.cs">
-      <DependentUpon>201611152036339_CambioSeis.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201611152044158_CambioSiete.cs" />
-    <Compile Include="Migrations\201611152044158_CambioSiete.Designer.cs">
-      <DependentUpon>201611152044158_CambioSiete.cs</DependentUpon>
+    <Compile Include="Migrations\201612010111290_CambioOcho.cs" />
+    <Compile Include="Migrations\201612010111290_CambioOcho.Designer.cs">
+      <DependentUpon>201612010111290_CambioOcho.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -368,6 +360,13 @@
     <Content Include="Views\Calificacion\Edit.cshtml" />
     <Content Include="Views\Calificacion\Index.cshtml" />
     <Content Include="Views\Profesor\asignarCalificaciones.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\AlumnoEditar.cshtml" />
+    <Content Include="Views\Account\AlumnoDelete.cshtml" />
+    <Content Include="Views\Account\IndexProfesor.cshtml" />
+    <Content Include="Views\Account\ProfesorEdit.cshtml" />
+    <Content Include="Views\Account\ProfesorDelete.cshtml" />
+    <Content Include="Views\Account\ProfesorDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -381,38 +380,32 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611151926406_initial.resx">
-      <DependentUpon>201611151926406_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611241820242_Initial.resx">
+      <DependentUpon>201611241820242_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611161506452_registro.resx">
-      <DependentUpon>201611161506452_registro.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611241840325_CambioUno.resx">
+      <DependentUpon>201611241840325_CambioUno.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611161513023_roles.resx">
-      <DependentUpon>201611161513023_roles.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611241847022_CambioDos.resx">
+      <DependentUpon>201611241847022_CambioDos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611162057129_calificacion.resx">
-      <DependentUpon>201611162057129_calificacion.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611270224508_CampoTres.resx">
+      <DependentUpon>201611270224508_CampoTres.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611141904046_CambioUno.resx">
-      <DependentUpon>201611141904046_CambioUno.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611272134548_CambioCuatro.resx">
+      <DependentUpon>201611272134548_CambioCuatro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611142200101_CambioDos.resx">
-      <DependentUpon>201611142200101_CambioDos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611282005347_CambioCinco.resx">
+      <DependentUpon>201611282005347_CambioCinco.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611142217003_CambioTres.resx">
-      <DependentUpon>201611142217003_CambioTres.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611282017242_CambioSeis.resx">
+      <DependentUpon>201611282017242_CambioSeis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611142235251_CambioCuatro.resx">
-      <DependentUpon>201611142235251_CambioCuatro.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201611282053590_CambioSiete.resx">
+      <DependentUpon>201611282053590_CambioSiete.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611150114482_CambioCinco.resx">
-      <DependentUpon>201611150114482_CambioCinco.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611152036339_CambioSeis.resx">
-      <DependentUpon>201611152036339_CambioSeis.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611152044158_CambioSiete.resx">
-      <DependentUpon>201611152044158_CambioSiete.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201612010111290_CambioOcho.resx">
+      <DependentUpon>201612010111290_CambioOcho.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

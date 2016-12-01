@@ -62,7 +62,7 @@ namespace SistemadeGestionEscolar.Controllers
                 foreach (var elemento in alumno)
                 {
                     Calificacion nuevaCalificacion = new Calificacion();
-                    nuevaCalificacion.numeroMatricula = elemento.numeroMatricula;
+                    nuevaCalificacion.Id = elemento.Id;
                     nuevaCalificacion.claseID = clase.claseID;
 
                     db.calificaciones.Add(nuevaCalificacion);

@@ -8,7 +8,7 @@
 }
 
 <h2>Crear</h2>
-<form action="crear" method="post">
+<form action="Register" method="post">
 
     <div class="row">
         <div class="form-group col-sm-6 ">
@@ -39,33 +39,63 @@
             @Html.ValidationMessageFor(alumno => alumno.apellidoMaterno, "", new { @class = "error" })
         </div>
 
-        <div class="form-group col-sm-6">
-            @Html.LabelFor(alumno => alumno.fechaDeNacimiento, new { @class = "control-label" })
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(alumno => alumno.UserName, new { @class = "control-label" })
             <div>
-                @Html.EditorFor(alumno => alumno.fechaDeNacimiento, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                @Html.EditorFor(alumno => alumno.UserName, new { htmlAttributes = new { required = "", @class = "form-control" } })
             </div>
-            @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
+            @Html.ValidationMessageFor(alumno => alumno.UserName, "", new { @class = "error" })
         </div>
+
+        @*<div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.fechaNacimiento, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.fechaNacimiento, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.fechaNacimiento, "", new { @class = "error" })
+        </div>*@
    
     </div>
 
     <div class="row">
-        <div class="form-group col-sm-12">
-
-            @Html.LabelFor(alumno => alumno.grupo.carrera, new { @class = "control-label" })
-
+        <div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.Email, new { @class = "control-label" })
             <div>
+                @Html.EditorFor(alumno => alumno.Email, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.Email, "", new { @class = "error" })
+        </div>
 
-                @Html.DropDownList("carreraPreferida",null, new { @class = "form-control" })
+        <div class="form-group col-sm-6">
+            @Html.LabelFor(alumno => alumno.PasswordHash, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(alumno => alumno.PasswordHash, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(alumno => alumno.PasswordHash, "", new { @class = "error" })
+        </div>
 
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-sm-12">
+
+                @Html.LabelFor(alumno => alumno.grupo.carrera, new { @class = "control-label" })
+
+                <div>
+
+                    @Html.DropDownList("carreraPreferida", null, new { @class = "form-control" })
+
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="form-group col-sm-12">
+        <div class="form-group col-sm-12">
 
-        <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
-        <p class="error"> @ViewBag.MensajeError </p>
+            <button class="btn btn-primary" type="submit" value="Enviar">Enviar</button>
+            <p class="error"> @ViewBag.MensajeError </p>
 
-    </div>
+        </div>
 </form>

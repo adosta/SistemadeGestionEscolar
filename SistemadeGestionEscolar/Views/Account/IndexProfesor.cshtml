@@ -1,0 +1,91 @@
+﻿@model IEnumerable<SistemadeGestionEscolar.Models.Profesor>
+
+@{
+    ViewBag.Title = "IndexProfesor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>IndexProfesor</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
+<table id="myTable" class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Especialidad</th>
+            <th>Grado</th>
+            <th></th>
+            <th></th>
+            <th></th>
+
+
+        </tr>
+
+    </thead>
+    <tbody>
+    @foreach (var item in Model.Where(item => item.rol == "Profesor"))
+    {
+        <tr>
+            <td>@item.nombre</td>
+            <td>@item.apellidoMaterno</td>
+            <td>@item.apellidoPaterno</td>
+            <td>@item.especialidad</td>
+            <td>@item.fechaDeNacimiento</td>
+            <td>@item.grado</td>
+            
+
+            <td>
+
+                @if (User.IsInRole("Admin"))
+                {
+
+                    @Html.ActionLink("Eliminar", "ProfesorDelete", "Account", new { @id = item.Id }, new { @class = "btn btn-primary" })
+                }
+            </td>
+            <td>
+                @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
+                {
+                    @Html.ActionLink("Modificar", "profesorEdit", "Account", new { @id = item.Id }, new { @class = "btn btn-primary" })
+                }
+            </td>
+            <td>
+                @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
+                {
+                    @Html.ActionLink("Detalles", "ProfesorDetails", "Account", new { @id = item.Id }, new { @class = "btn btn-primary" })
+                }
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+
+
+<style>
+    tr.even {
+        background-color: #e6e6e6 !important;
+    }
+</style>
+
+<link href="//cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/responsive.jqueryui.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $("#myTable").DataTable();
+            });
+
+    </script>
+
+}

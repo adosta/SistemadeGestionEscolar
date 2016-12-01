@@ -9,7 +9,7 @@
 
 <form action="editar" method="post">
 
-    @Html.HiddenFor(a => a.numeroMatricula)
+    @*@Html.HiddenFor(a => a.numeroMatricula)*@
 
     <div class="row">
         <div class="form-group col-sm-6 ">
@@ -40,13 +40,13 @@
             @Html.ValidationMessageFor(alumno => alumno.apellidoMaterno, "", new { @class = "error" })
         </div>
 
-        <div class="form-group col-sm-6">
+        @*<div class="form-group col-sm-6">
             @Html.LabelFor(alumno => alumno.fechaDeNacimiento, new { @class = "control-label" })
             <div>
                 @Html.EditorFor(alumno => alumno.fechaDeNacimiento, new { htmlAttributes = new { required = "", @class = "form-control" } })
             </div>
             @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
-        </div>
+        </div>*@
 
         <div class="form-group col-sm-6">
             @Html.LabelFor(alumno => alumno.carreraPreferida, new { @class = "control-label" })

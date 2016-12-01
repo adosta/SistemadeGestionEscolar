@@ -9,7 +9,7 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="color:#ff0000">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -24,16 +24,18 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Preinscripcion", "Crear", "alumno")</li>
+                    <li>@Html.ActionLink("Preinscripcion", "Register", "Account")</li>
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Alumno", "listar", "alumno")</li>
+
+                        <li>@Html.ActionLink("Alumno", "Index", "Account")</li>
                         <li>@Html.ActionLink("Carreras", "Index", "carreras")</li>
                         <li>@Html.ActionLink("Grupo", "Index", "grupo")</li>
                         <li>@Html.ActionLink("Clases", "Index", "clase")</li>
                         <li>@Html.ActionLink("Asignatura", "Index", "asignatura")</li>
-                        <li>@Html.ActionLink("Profesor", "Index", "profesor")</li>
+                        <li>@Html.ActionLink("Profesor", "IndexProfesor", "Account")</li>
+
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

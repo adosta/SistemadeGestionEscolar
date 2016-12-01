@@ -9,12 +9,16 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SistemadeGestionEscolar.Models;
+using System.Data.Entity;
+using System.Net;
 
 namespace SistemadeGestionEscolar.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -51,6 +55,9 @@ namespace SistemadeGestionEscolar.Controllers
                 _userManager = value;
             }
         }
+
+
+        
 
         //
         // GET: /Account/Login
@@ -139,6 +146,12 @@ namespace SistemadeGestionEscolar.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+
+            var carreras =db.carreras ;
+            SelectList carreraID = new SelectList(carreras, "NombreCarrera", "NombreCarrera");
+
+            ViewBag.carreraPreferida = carreraID;
+           
             return View();
         }
 
@@ -151,27 +164,54 @@ namespace SistemadeGestionEscolar.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser (model);
+                var user = new ApplicationUser();
+
+                if (!User.Identity.IsAuthenticated)
+                {
+                    user.rol = ApplicationUser.RoleNames.ALUMNO;
+                    user = new Alumno(model);
+                }
+                else if (User.IsInRole(ApplicationUser.RoleNames.ADMIN))
+                {
+
+                    user.rol = model.rol;
+                    if (model.rol == ApplicationUser.RoleNames.PROFESOR)
+                        user = new Profesor(model);
+
+                }
+
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     //Se le asigna un rol
-                    UserManager.AddToRole(user.Id, model.rol);
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        UserManager.AddToRole(user.Id, model.rol);
+                    }
+                    else
+                    {
+                       
+                        UserManager.AddToRole(user.Id, "Alumno");
+                    }
                     //Entra automaticamente al sistema
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("../Home");
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
+            var carreras = db.carreras;
+            SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
+
+            ViewBag.carreraID = carreraID;
             return View(model);
         }
 
@@ -484,5 +524,174 @@ namespace SistemadeGestionEscolar.Controllers
             }
         }
         #endregion
+
+
+        #region Controllers de Alumno
+
+        public ActionResult Index()
+        {
+            var todosLosUsuarios = db.alumnos.ToList();
+
+            return View(todosLosUsuarios);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin,Capturista")]
+        public ActionResult alumnoEditar(string Id)
+        {
+
+            var alumno = db.alumnos.Find(Id);
+            if (alumno == null)
+            {
+                return RedirectToAction("Index");
+            }
+            var grupo = db.grupos;
+            SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
+            ViewBag.grupoID = grupoID;
+            return View(alumno);
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin,Capturista ")]
+        public ActionResult alumnoEditar(Alumno alumnoEditado)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(alumnoEditado).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            var grupo = db.grupos;
+            SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");
+            ViewBag.grupoID = grupoID;
+
+            return View();
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult alumnoDelete(string Id)
+        {
+            var alumno = db.alumnos.Find(Id);
+            if (alumno == null)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(alumno);
+            }
+
+
+        }
+
+        [HttpPost]
+        [ActionName("AlumnoDelete")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult confirmarEliminar(string Id)
+        {
+
+            var alumno = db.alumnos.Find(Id);
+
+            if (alumno == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            db.alumnos.Remove(alumno);
+            db.SaveChanges();//Ejecuta la lista de querys en la BD
+            return RedirectToAction("Index");
+        }
+        #endregion
+
+
+        public ActionResult IndexProfesor()
+        {
+            var todosLosUsuarios = db.profesores.ToList();
+
+            return View(todosLosUsuarios);
+        }
+
+        public ActionResult profesorDetails(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Profesor profesor = db.profesores.Find(id);
+            if (profesor == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profesor);
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin,Capturista")]
+        public ActionResult profesorEdit(string id)
+        {
+            var profesor = db.profesores.Find(id);
+            if (profesor == null)
+            {
+                return RedirectToAction("IndexProfesor");
+            }
+
+            return View(profesor);
+        }
+
+        [HttpPost]
+        [Authorize(Roles = "Admin,Capturista ")]
+        public ActionResult profesorEdit(Profesor profesorEditado)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(profesorEditado).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("IndexProfesor");
+            }
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult profesorDelete(string Id)
+        {
+            var profesor = db.profesores.Find(Id);
+            if (profesor == null)
+            {
+                return RedirectToAction("IndexProfesor");
+            }
+            else
+            {
+                return View(profesor);
+            }
+
+
+        }
+
+        [HttpPost]
+        [ActionName("ProfesorDelete")]
+        [Authorize(Roles = "Admin")]
+        public ActionResult confirmDeleteProfe(string Id)
+        {
+
+            var profesor = db.profesores.Find(Id);
+
+            if (profesor == null)
+            {
+                return RedirectToAction("IndexProfesor");
+            }
+
+            db.profesores.Remove(profesor);
+            db.SaveChanges();//Ejecuta la lista de querys en la BD
+            return RedirectToAction("IndexProfesor");
+        }
+
+
+
+
     }
+
 }

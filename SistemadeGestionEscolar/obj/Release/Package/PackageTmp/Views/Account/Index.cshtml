@@ -1,0 +1,103 @@
+﻿@model IEnumerable<SistemadeGestionEscolar.Models.Alumno>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
+<table id="myTable" class="table table-hover">
+
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            @*<th>Fecha de Nacimiento</th>*@
+            <th>Carrera</th>
+            <th>Grupo</th>
+            <th></th>
+            <th></th>
+           
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+        @foreach (var alumno in Model.Where(item=>item.rol=="Alumno"))
+            {
+            <tr>
+
+                <td>@alumno.nombre</td>
+                <td>@alumno.apellidoMaterno</td>
+                <td>@alumno.apellidoPaterno</td>
+                @*<td>@alumno.fechaNacimiento.ToLongDateString()</td>*@
+                <td>@alumno.carreraPreferida</td>
+
+                <td>
+                    @if (alumno.grupo == null)
+                    {
+                        @("No inscrito")
+                    }
+                    else
+                    {
+                        @alumno.grupo.nombreGrupo
+                    }
+                </td>
+
+
+
+                <td>
+
+                    @if (User.IsInRole("Admin"))
+                    {
+
+                        @Html.ActionLink("Eliminar", "AlumnoDelete", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+                    }
+                </td>
+                @*<td>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
+                    {
+                        @Html.ActionLink("Detalles", "DetallesAlumno", "Alumno", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+                    }
+                </td>*@
+
+                <td>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
+                    {
+                        @Html.ActionLink("Inscribir", "AlumnoEditar", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<style>
+    tr.even {
+        background-color: #e6e6e6 !important;
+    }
+</style>
+
+<link href="//cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+@section Scripts{
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script src="//cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script>
+<script src="//cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+<script src="//cdn.datatables.net/responsive/2.1.0/js/responsive.jqueryui.min.js"></script>
+
+<script>
+            $(document).ready(function () {
+                $("#myTable").DataTable();
+            });
+
+</script>
+    
+    }

@@ -1,0 +1,20 @@
+﻿@model SistemadeGestionEscolar.Models.Alumno
+
+@{
+    ViewBag.Title = "AlumnoDelete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AlumnoDelete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<span>Email:</span>@Model.Email<br>
+<span>User Name:</span>@Model.UserName<br>
+<span>Nombre:</span>@(Model.nombre + " " + Model.apellidoPaterno + " " + Model.apellidoMaterno)<br />
+<span>Grupo:</span>@Model.grupo.nombreGrupo
+
+
+<form action="confirmarEliminar" method="post">
+    @Html.HiddenFor(a => a.Id)
+    <button type="submit">Confirmar</button>
+</form>

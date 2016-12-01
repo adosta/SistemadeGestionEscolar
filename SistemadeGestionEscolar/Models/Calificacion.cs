@@ -16,7 +16,7 @@ namespace SistemadeGestionEscolar.Models
         public int parcial3 { get; set; }
         public int final { get; set; }
 
-        public int numeroMatricula { get; set; }
+        public string Id { get; set; }
         virtual public Alumno alumno { get; set; }
 
         public int claseID { get; set; }

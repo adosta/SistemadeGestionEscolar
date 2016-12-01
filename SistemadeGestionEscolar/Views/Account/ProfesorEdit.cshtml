@@ -1,0 +1,102 @@
+﻿@model SistemadeGestionEscolar.Models.Profesor
+
+@{
+    ViewBag.Title = "ProfesorEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProfesorEdit</h2>
+
+<form action="confirmEdit" method="post">
+
+    @Html.HiddenFor(a => a.Id)
+    @Html.HiddenFor(a => a.rol)
+    <div class="row">
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(profesor => profesor.Email, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(profesor => profesor.Email, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(profesor => profesor.Email, "", new { @class = "error" })
+        </div>
+        <div class="form-group col-sm-6 ">
+            @Html.LabelFor(profesor => profesor.UserName, new { @class = "control-label" })
+            <div>
+                @Html.EditorFor(profesor => profesor.UserName, new { htmlAttributes = new { required = "", @class = "form-control" } })
+            </div>
+            @Html.ValidationMessageFor(profesor => profesor.UserName, "", new { @class = "error" })
+        </div>
+
+
+
+    </div>
+
+
+        <div class="row">
+            <div class="form-group col-sm-6 ">
+                @Html.LabelFor(profesor => profesor.nombre, new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(profesor => profesor.nombre, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(profesor => profesor.nombre, "", new { @class = "error" })
+            </div>
+
+
+            <div class="form-group col-sm-6 ">
+                @Html.LabelFor(profesor => profesor.apellidoPaterno)
+
+                @Html.EditorFor(profesor => profesor.apellidoPaterno, new { htmlAttributes = new { required = "", @class = "form-control" } })
+
+                @Html.ValidationMessageFor(profesor => profesor.apellidoPaterno, "", new { @class = "error" })
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                @Html.LabelFor(profesor => profesor.apellidoMaterno, new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(profesor => profesor.apellidoMaterno, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(profesor => profesor.apellidoMaterno, "", new { @class = "error" })
+            </div>
+
+            @*<div class="form-group col-sm-6">
+                    @Html.LabelFor(alumno => alumno.fechaDeNacimiento, new { @class = "control-label" })
+                    <div>
+                        @Html.EditorFor(alumno => alumno.fechaDeNacimiento, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                    </div>
+                    @Html.ValidationMessageFor(alumno => alumno.fechaDeNacimiento, "", new { @class = "error" })
+                </div>*@
+
+            <div class="form-group col-sm-6">
+                @Html.LabelFor(profesor => profesor.especialidad, new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(profesor => profesor.especialidad, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(profesor => profesor.especialidad, "", new { @class = "error" })
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                @Html.LabelFor(profesor => profesor.grado, new { @class = "control-label" })
+                <div>
+                    @Html.EditorFor(profesor => profesor.grado, new { htmlAttributes = new { required = "", @class = "form-control" } })
+                </div>
+                @Html.ValidationMessageFor(profesor => profesor.grado, "", new { @class = "error" })
+            </div>
+
+
+        </div>
+
+
+
+
+        <div class="form-group col-sm-12">
+
+            <button class="btn btn-primary" type="submit" value="Editar">Editar</button>
+            <p class="error"> @ViewBag.MensajeError </p>
+
+        </div>
+</form>

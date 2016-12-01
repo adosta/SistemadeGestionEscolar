@@ -37,9 +37,10 @@
                 <th>Apellido Materno</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Carrera</th>
+                <th>Grupo</th>
                 <th></th>
                 <th></th>
-                
+                <th></th>
 
             </tr>
 
@@ -49,12 +50,23 @@
             @foreach (var alumno in Model)
             {
                 <tr>
-
+                    
                     <td>@alumno.nombre</td>
                     <td>@alumno.apellidoMaterno</td>
-                    <td>@alumno.fechaDeNacimiento.ToLongDateString()</td>
+                    <td>@alumno.apellidoPaterno</td>
+                    @*<td>@alumno.fechaNacimiento.ToLongDateString()</td>*@
                     <td>@alumno.carreraPreferida</td>
-
+                    
+                    <td>
+                        @if (alumno.grupo == null)
+                        {
+                            @("No inscrito")
+                        }
+                        else
+                        {
+                            @alumno.grupo.nombreGrupo
+                        }
+                    </td>
 
 
 
@@ -63,20 +75,20 @@
                         @if (User.IsInRole("Admin"))
                         {
 
-                            @Html.ActionLink("Eliminar", "eliminar", "Alumno", new { @id = alumno.numeroMatricula }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Eliminar", "eliminar", "Alumno", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
                         }
                     </td>
                     <td>
                         @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
                         {
-                            @Html.ActionLink("Detalles", "DetallesAlumno", "Alumno", new { @id = alumno.numeroMatricula }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Detalles", "DetallesAlumno", "Alumno", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
                         }
                     </td>
 
                     <td>
                         @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
                         {
-                            @Html.ActionLink("Inscribir", "editar", "Alumno", new { @id = alumno.numeroMatricula }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Inscribir", "editar", "Alumno", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
                         }
                     </td>
                 </tr>

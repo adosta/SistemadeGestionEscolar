@@ -3,13 +3,15 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SistemadeGestionEscolar.Models
 {
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
-        private RegisterViewModel model;
+        //private RegisterViewModel model;
 
         public ApplicationUser(RegisterViewModel model)
         {
@@ -18,8 +20,7 @@ namespace SistemadeGestionEscolar.Models
             this.nombre = model.nombre;
             this.apellidoPaterno = model.apellidoPaterno;
             this.apellidoMaterno = model.apellidoMaterno;
-            this.especialidad = model.especialidad;
-            this.grado = model.grado;
+            this.fechaDeNacimiento = model.fechaDeNacimiento;    
             this.rol = model.rol;
         }
 
@@ -39,9 +40,20 @@ namespace SistemadeGestionEscolar.Models
         public string nombre { get; set; }
         public string apellidoPaterno { get; set; }
         public string apellidoMaterno { get; set; }
-        public string especialidad { get; set; }
-        public string grado { get; set; }
+        public DateTime fechaDeNacimiento { get; set; }
+        //public string carreraPreferida { get; set; }
+        //public string grupoID { get; set; }
+        //public string especialidad { get; set; }
+        //public string grado { get; set; }
         public string rol { get; set; }
+
+
+        public static class RoleNames
+        {
+            public static String ALUMNO = "Alumno";
+            public static String ADMIN = "Admin";
+            public static String PROFESOR = "Profesor";
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -53,6 +65,8 @@ namespace SistemadeGestionEscolar.Models
         public DbSet<Asignatura> asignaturas { get; set; }
         public DbSet<Carrera> carreras { get; set; }
         public DbSet<Calificacion> calificaciones { get; set; }
+        
+       
 
 
         public ApplicationDbContext()
@@ -64,5 +78,8 @@ namespace SistemadeGestionEscolar.Models
         {
             return new ApplicationDbContext();
         }
+
+        //public System.Data.Entity.DbSet<SistemadeGestionEscolar.Models.ApplicationUser> ApplicationUsers { get; set; }
+        
     }
 }
