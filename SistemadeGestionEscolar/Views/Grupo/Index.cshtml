@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Grupos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table id="myTable" class="table table-hover">
     
     <thead>
@@ -42,7 +40,9 @@
         }
     </tbody>
 </table>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <style>
     tr.even {
         background-color: #e6e6e6 !important;

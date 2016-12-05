@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SistemadeGestionEscolar.Models.Clase>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.asignatura.nombreAsignatura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.grupo.nombreGrupo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.profesorID)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.asignatura.nombreAsignatura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.grupo.nombreGrupo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.profesorID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.claseID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.claseID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.claseID })
+        </td>
+    </tr>
+}
+
+</table>

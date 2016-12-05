@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Asignaturas</h2>
 
-<p>
-    @Html.ActionLink("Agregar asignatura", "Create")
-</p>
+
 
 <table id="myTable" class="table table-hover">
 
@@ -30,20 +28,22 @@
                 <td>@item.nombreAsignatura</td>
 
                 <td>
-                    @Html.ActionLink("Delete", "Delete", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "Asignatura", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
 
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Edit", "Edit", "Asignatura", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
                 </td>
                 <td>
-                    @Html.ActionLink("Details", "Details", "Grupo", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", "Asignatura", new { @id = item.asignaturaID }, new { @class = "btn btn-primary" })
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
+<p>
+    @Html.ActionLink("Agregar asignatura", "Create")
+</p>
 <style>
     tr.even {
         background-color: #e6e6e6 !important;

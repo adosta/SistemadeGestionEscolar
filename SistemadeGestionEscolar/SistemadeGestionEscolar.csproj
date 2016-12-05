@@ -196,6 +196,7 @@
     <Compile Include="Controllers\CalificacionController.cs" />
     <Compile Include="Controllers\CarrerasController.cs" />
     <Compile Include="Controllers\ClaseController.cs" />
+    <Compile Include="Controllers\Clases2Controller.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -239,6 +240,14 @@
     <Compile Include="Migrations\201612010111290_CambioOcho.Designer.cs">
       <DependentUpon>201612010111290_CambioOcho.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612041919411_CambioNueve.cs" />
+    <Compile Include="Migrations\201612041919411_CambioNueve.Designer.cs">
+      <DependentUpon>201612041919411_CambioNueve.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612051805490_CambioDiez.cs" />
+    <Compile Include="Migrations\201612051805490_CambioDiez.Designer.cs">
+      <DependentUpon>201612051805490_CambioDiez.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
@@ -254,12 +263,43 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ie8.css" />
+    <Content Include="assets\css\ie9.css" />
+    <Content Include="assets\css\images\alex1.png" />
+    <Content Include="assets\css\images\dark-bl.svg" />
+    <Content Include="assets\css\images\dark-br.svg" />
+    <Content Include="assets\css\images\dark-tl.svg" />
+    <Content Include="assets\css\images\dark-tr.svg" />
+    <Content Include="assets\css\images\light-bl.svg" />
+    <Content Include="assets\css\images\light-br.svg" />
+    <Content Include="assets\css\images\light-tl.svg" />
+    <Content Include="assets\css\images\light-tr.svg" />
+    <Content Include="assets\css\images\overlay.png" />
+    <Content Include="assets\css\images\UTPP.png" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\js\ie\backgroundsize.min.htc" />
+    <Content Include="assets\js\ie\html5shiv.js" />
+    <Content Include="assets\js\ie\respond.min.js" />
+    <Content Include="assets\js\jquery.dropotron.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\jquery.scrollgress.min.js" />
+    <Content Include="assets\js\jquery.scrolly.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\skel.min.js" />
+    <Content Include="assets\js\util.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\pic01.jpg" />
+    <Content Include="images\pic02.jpg" />
+    <Content Include="images\pic03.jpg" />
+    <Content Include="images\pic04.jpg" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -267,19 +307,37 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
+    <Content Include="assets\sass\ie8.scss" />
+    <Content Include="assets\sass\ie9.scss" />
+    <Content Include="assets\sass\libs\_functions.scss" />
+    <Content Include="assets\sass\libs\_mixins.scss" />
+    <Content Include="assets\sass\libs\_skel.scss" />
+    <Content Include="assets\sass\libs\_vars.scss" />
+    <Content Include="assets\sass\main.scss" />
     <None Include="Properties\PublishProfiles\Default Settings %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.scrollex.min.js" />
+    <Content Include="Scripts\jquery.scrolly.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\skel.min.js" />
+    <Content Include="Scripts\util.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -367,6 +425,18 @@
     <Content Include="Views\Account\ProfesorEdit.cshtml" />
     <Content Include="Views\Account\ProfesorDelete.cshtml" />
     <Content Include="Views\Account\ProfesorDetails.cshtml" />
+    <Content Include="Views\Account\EditAlumno.cshtml" />
+    <Content Include="Views\Carreras\Edit2.cshtml" />
+    <Content Include="Views\Grupoes\Create.cshtml" />
+    <Content Include="Views\Grupoes\Delete.cshtml" />
+    <Content Include="Views\Grupoes\Details.cshtml" />
+    <Content Include="Views\Grupoes\Edit.cshtml" />
+    <Content Include="Views\Grupoes\Index.cshtml" />
+    <Content Include="Views\Clases2\Create.cshtml" />
+    <Content Include="Views\Clases2\Delete.cshtml" />
+    <Content Include="Views\Clases2\Details.cshtml" />
+    <Content Include="Views\Clases2\Edit.cshtml" />
+    <Content Include="Views\Clases2\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -406,6 +476,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612010111290_CambioOcho.resx">
       <DependentUpon>201612010111290_CambioOcho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612041919411_CambioNueve.resx">
+      <DependentUpon>201612041919411_CambioNueve.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612051805490_CambioDiez.resx">
+      <DependentUpon>201612051805490_CambioDiez.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -39,7 +39,7 @@ namespace SistemadeGestionEscolar.Controllers
         // GET: Calificacion/Create
         public ActionResult Create()
         {
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre");
+            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre");
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID");
             return View();
         }
@@ -49,7 +49,7 @@ namespace SistemadeGestionEscolar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,numeroMatricula,claseID")] Calificacion calificacion)
+        public ActionResult Create([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,Id,claseID")] Calificacion calificacion)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace SistemadeGestionEscolar.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
+            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }
@@ -75,7 +75,7 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
+            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }
@@ -93,7 +93,7 @@ namespace SistemadeGestionEscolar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.numeroMatricula = new SelectList(db.alumnos, "numeroMatricula", "nombre", calificacion.Id);
+            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre", calificacion.Id);
             ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
             return View(calificacion);
         }

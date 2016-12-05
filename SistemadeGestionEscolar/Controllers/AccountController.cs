@@ -166,7 +166,7 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 var user = new ApplicationUser();
 
-                if (!User.Identity.IsAuthenticated)
+                if (!User.Identity.IsAuthenticated || model.rol==ApplicationUser.RoleNames.ALUMNO)
                 {
                     user.rol = ApplicationUser.RoleNames.ALUMNO;
                     user = new Alumno(model);
@@ -211,7 +211,7 @@ namespace SistemadeGestionEscolar.Controllers
             var carreras = db.carreras;
             SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
 
-            ViewBag.carreraID = carreraID;
+            ViewBag.carreraPreferida = carreraID;
             return View(model);
         }
 
@@ -545,6 +545,9 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 return RedirectToAction("Index");
             }
+
+            
+
             var grupo = db.grupos;
             SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
             ViewBag.grupoID = grupoID;
@@ -562,6 +565,8 @@ namespace SistemadeGestionEscolar.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            
 
             var grupo = db.grupos;
             SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");

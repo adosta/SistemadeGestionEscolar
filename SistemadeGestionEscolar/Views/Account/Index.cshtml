@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Alumnos</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Register")
-</p>
+
 <table id="myTable" class="table table-hover">
 
     <thead>
@@ -18,8 +16,10 @@
             <th>Apellido Paterno</th>
             <th>Apellido Materno</th>
             <th>Fecha de Nacimiento</th>
-            <th>Carrera</th>
+            <th>Carrera Preferida</th>
+            <th>Carrera Oficial</th>
             <th>Grupo</th>
+            <th></th>
             <th></th>
             <th></th>
            
@@ -38,7 +38,17 @@
                 <td>@alumno.apellidoPaterno</td>
                 <td>@alumno.fechaDeNacimiento.ToLongDateString()</td>
                 <td>@alumno.carreraPreferida</td>
-
+                
+                <td>
+                    @if (alumno.grupo == null)
+                    {
+                        @("No inscrito")
+                    }
+                    else
+                    {
+                        @alumno.grupo.carrera.NombreCarrera
+                    }
+                </td>
                 <td>
                     @if (alumno.grupo == null)
                     {
@@ -60,17 +70,34 @@
                         @Html.ActionLink("Eliminar", "AlumnoDelete", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
                     }
                 </td>
-                @*<td>
+                <td>
                     @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
                     {
-                        @Html.ActionLink("Detalles", "DetallesAlumno", "Alumno", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+                        if (alumno.grupo == null)
+                        {
+                            @("")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Editar", "AlumnoEditar", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+
+                        }
                     }
-                </td>*@
+                </td>
 
                 <td>
                     @if (User.IsInRole("Admin") || User.IsInRole("Capturista"))
                     {
-                        @Html.ActionLink("Inscribir", "AlumnoEditar", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+                        if (alumno.grupo == null)
+                        {
+                            @Html.ActionLink("Inscribir", "AlumnoEditar", "Account", new { @id = alumno.Id }, new { @class = "btn btn-primary" })
+
+
+                        }
+                        else
+                        {
+                            @("Alumno Inscrito")
+                        }
                     }
                 </td>
             </tr>
@@ -78,7 +105,9 @@
     </tbody>
 
 </table>
-
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
 <style>
     tr.even {
         background-color: #e6e6e6 !important;
@@ -97,6 +126,7 @@
             $(document).ready(function () {
                 $("#myTable").DataTable();
             });
+
 
 </script>
     

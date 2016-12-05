@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>IndexProfesor</h2>
+<h2>Profesores</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Register")
-</p>
+
 <table id="myTable" class="table table-hover">
 
     <thead>
@@ -29,14 +27,14 @@
 
     </thead>
     <tbody>
-    @foreach (var item in Model.Where(item => item.rol == "Profesor"))
+    @foreach (var item in Model)
     {
         <tr>
             <td>@item.nombre</td>
             <td>@item.apellidoMaterno</td>
-            <td>@item.apellidoPaterno</td>
-            <td>@item.especialidad</td>
+            <td>@item.apellidoPaterno</td>            
             <td>@item.fechaDeNacimiento</td>
+            <td>@item.especialidad</td>
             <td>@item.grado</td>
             
 
@@ -65,7 +63,9 @@
     }
     </tbody>
 </table>
-
+<p>
+    @Html.ActionLink("Create New", "Register")
+</p>
 
 <style>
     tr.even {

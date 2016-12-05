@@ -13,7 +13,7 @@ namespace SistemadeGestionEscolar.Models
 
         [Required]
         [Display(Name = "Profesor")]
-        public int profesorID { get; set; }
+        public string Id { get; set; }
         public virtual Profesor profesor { get; set; }
 
         [Required]

@@ -29,7 +29,7 @@ namespace SistemadeGestionEscolar.Models
             this.apellidoPaterno = model.apellidoPaterno;
             this.apellidoMaterno = model.apellidoMaterno;
             this.fechaDeNacimiento = model.fechaDeNacimiento;
-            this.rol = model.rol;
+            
             this.carreraPreferida = model.carreraPreferida;
             //this.grupo.nombreGrupo = model.grupoID;
         }

@@ -1,57 +1,163 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Sistema de Gestion Escolar</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+﻿<!-- #region Pruebas -->
 
-</head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="color:#ff0000">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Preinscripcion", "Register", "Account")</li>
+@*<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title - Sistema de Gestion Escolar</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top" style="color:#ff0000">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                        <li>@Html.ActionLink("Preinscripcion", "Register", "Account")</li>
 
-                        <li>@Html.ActionLink("Alumno", "Index", "Account")</li>
-                        <li>@Html.ActionLink("Carreras", "Index", "carreras")</li>
-                        <li>@Html.ActionLink("Grupo", "Index", "grupo")</li>
-                        <li>@Html.ActionLink("Clases", "Index", "clase")</li>
-                        <li>@Html.ActionLink("Asignatura", "Index", "asignatura")</li>
-                        <li>@Html.ActionLink("Profesor", "IndexProfesor", "Account")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
 
-                    }
-                </ul>
-                @Html.Partial("_LoginPartial")
+                            <li>@Html.ActionLink("Alumno", "Index", "Account")</li>
+                            <li>@Html.ActionLink("Carreras", "Index", "carreras")</li>
+                            <li>@Html.ActionLink("Grupo", "Index", "grupo")</li>
+
+                            <li>@Html.ActionLink("Clases", "Index", "clase")</li>
+                            <li>@Html.ActionLink("Asignatura", "Index", "asignatura")</li>
+                            <li>@Html.ActionLink("Profesor", "IndexProfesor", "Account")</li>
+
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
 
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>*@
+<!-- #endregion -->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Sistema Gestion Escolar</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/assets/css/main.css")
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+<body class="index">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+                <nav id="nav">
+                    <ul>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                        <li class="button special"><a href="~/Home/">Welcome</a></li>
+                        }
+                        <li>@Html.Partial("_LoginPartial")</li>
+                        @if (User.Identity.IsAuthenticated)
+                        { 
+                        <li class="submenu">
+                            <a href="#" class="button special">Opciones de User</a>
+                            <ul>
+                                <li><a href=""></a>---------------V---------------</li>
+                                <li><a href=""></a>---------------V---------------</li>
+                                <li><a href="~/Account/">Alumnos</a></li>
+                                <li><a href="~/Account/IndexProfesor/">Profesores</a></li>
+                                <li><a href="~/Carreras/">Carreras</a></li>
+                                <li><a href="~/Clase/">Clases</a></li>
+                                <li><a href="~/Asignatura/">Asignaturas</a></li>
+                                
+                              
+                            </ul>
+                        </li>
+                        
+                        }                                            
+                    </ul>
+                    <ul><li></li></ul>
+                    
+                </nav>
+            
+</header>
+
+        <!-- Banner -->
+        <section id="banner">
+
+
+            <div class="inner">
+
+                <header>
+                    <h2>Sistema Gestion Escolar</h2>
+                </header>
+               <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>.</p>
+                <p>v</p>
+               
+                
+                <footer>
+                    <ul class="buttons vertical">
+                        <li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
+                    </ul>
+                </footer>
+
+            </div>
+
+        </section>
+
+        <div class="container body-content" id="main">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
+
+    </div>
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.dropotron.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/jquery.scrollgress.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="../assets/js/main.js"></script>
     @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>
 </html>

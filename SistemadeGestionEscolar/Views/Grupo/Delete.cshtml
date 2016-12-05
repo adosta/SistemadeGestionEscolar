@@ -5,37 +5,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>ELIMINAR GRUPO</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Grupo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.nombreGrupo)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.nombreGrupo)
-        </dd>
+<span>Nombre Grupo:</span>@(Model.nombreGrupo)
+<span>Nombre Carrera:</span>@(Model.carrera.NombreCarrera)
 
-        <dt>
-            @Html.DisplayNameFor(model => model.carrera)
-        </dt>
+<form action="DeleteConfirmed" method="post">
 
-        <dd>
-            @Html.DisplayFor(model => model.carrera)
-        </dd>
+    @Html.HiddenFor(a=>a.grupoID)
+    <button type="submit">Confitmar</button>
 
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+</form>

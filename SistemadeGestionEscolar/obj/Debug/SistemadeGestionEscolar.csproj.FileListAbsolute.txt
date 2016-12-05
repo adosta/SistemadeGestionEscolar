@@ -204,10 +204,7 @@ C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\S
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csprojResolveAssemblyReference.cache
-C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.dll
-C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.Initial.resources
-C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioUno.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioDos.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CampoTres.resources
@@ -216,3 +213,8 @@ C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\S
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioSeis.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioSiete.resources
 C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioOcho.resources
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.csproj.GenerateResource.Cache
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.dll
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.pdb
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioNueve.resources
+C:\Users\Alexis\Documents\Visual Studio 2015\Projects\SistemaGestionRepositori\SistemadeGestionEscolar\obj\Debug\SistemadeGestionEscolar.Migrations.CambioDiez.resources

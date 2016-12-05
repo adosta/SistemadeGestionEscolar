@@ -46,9 +46,9 @@
         
 
 
-        @*<td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { id = clases.claseID }, null)  </td>
-        <td>@Html.ActionLink("Editar", "editar", "Alumno", new { id = clases.claseID }, null)  </td>
-        <td>@Html.ActionLink("Detalles", "../clase/details", new { id = clases.claseID })</td>*@
+        <td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { calificacion = calificacion.claseID }, null)  </td>
+        <td>@Html.ActionLink("Editar", "editar", "Alumno", new { calificacion = calificacion.claseID }, null)  </td>
+        <td>@Html.ActionLink("Detalles", "../clase/details", new { calificacion = calificacion.claseID })</td>
 
     </tr>
 }

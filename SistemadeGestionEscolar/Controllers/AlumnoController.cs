@@ -165,6 +165,10 @@ namespace SistemadeGestionEscolar.Controllers
                 return RedirectToAction("listar");
             }
 
+            var carreras = db.carreras;
+            SelectList carreraID = new SelectList(carreras, "carreraID", "NombreCarrera");
+            ViewBag.carreraID = carreraID;
+
             var grupo = db.grupos;
             SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");
             ViewBag.grupoID = grupoID;

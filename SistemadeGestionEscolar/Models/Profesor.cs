@@ -47,7 +47,7 @@ namespace SistemadeGestionEscolar.Models
             this.apellidoPaterno = model.apellidoPaterno;
             this.apellidoMaterno = model.apellidoMaterno;
             this.fechaDeNacimiento = model.fechaDeNacimiento;
-            this.rol = model.rol;
+           
             this.especialidad = model.especialidad;
             this.grado = model.grado;
         }
