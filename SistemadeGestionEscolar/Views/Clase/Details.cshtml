@@ -38,22 +38,60 @@
     </dl>
 </div>
 
-@foreach (var calificacion in Model.calificacion)
-{
-    <tr>
+<table id="myTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre Del Alumno</th>
+            <th>Parcial 1</th>
+            <th>Parcial 2</th>
+            <th>Parcial 3</th>
+            <th>Parcial Final</th>
+            
+        </tr>
 
-        <td>@calificacion.alumno.nombre</td>
-        
+    </thead>
+
+    @foreach (var calificacion in Model.calificacion)
+    {
+        <tr>
+
+            <td>@calificacion.alumno.nombre</td>
+            <td>@calificacion.parcial1</td>
+            <td>@calificacion.parcial2</td>
+            <td>@calificacion.parcial3</td>
+            <td>@calificacion.final</td>
+           
 
 
-        <td>@Html.ActionLink("Eliminar", "eliminar", "Alumno", new { calificacion = calificacion.claseID }, null)  </td>
-        <td>@Html.ActionLink("Editar", "editar", "Alumno", new { calificacion = calificacion.claseID }, null)  </td>
-        <td>@Html.ActionLink("Detalles", "../clase/details", new { calificacion = calificacion.claseID })</td>
+            
 
-    </tr>
-}
-
+        </tr>
+    }
+</table>
 <p>
     @Html.ActionLink("Editar", "Edit", new { id = Model.claseID }) |
     @Html.ActionLink("Volver a la lista", "Index")
 </p>
+<style>
+    tr.even {
+        background-color: #e6e6e6 !important;
+    }
+</style>
+
+<link href="//cdn.datatables.net/1.10.12/css/dataTables.jqueryui.min.css" rel="stylesheet" />
+<link href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+
+@section Scripts{
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/dataTables.jqueryui.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+    <script src="//cdn.datatables.net/responsive/2.1.0/js/responsive.jqueryui.min.js"></script>
+
+    <script>
+            $(document).ready(function () {
+                $("#myTable").DataTable();
+                $("#myTable2").DataTable();
+            });
+
+    </script>
+}

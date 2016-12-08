@@ -8,13 +8,16 @@
 <h2>ELIMANAR ALUMNO</h2>
 
 <h3>Are you sure you want to delete this?</h3>
-<h1><span>Email:___</span>@Model.Email</h1><br>
-<h1><span>User Name:___</span>@Model.UserName</h1><br>
-<h1><span>Nombre:___</span>@(Model.nombre + " " + Model.apellidoPaterno + " " + Model.apellidoMaterno)<br /></h1>
+@Html.HiddenFor(a => a.Id)
+
+<span><strong>Email:</strong></span>@Model.Email<br>
+<span><strong>User Name:</strong></span>@Model.UserName<br>
+<span><strong>Nombre:</strong></span>@(Model.nombre + " " + Model.apellidoPaterno + " " + Model.apellidoMaterno)<br />
 
 
 
         <form action="confirmarEliminar" method="post">
-            @Html.HiddenFor(a => a.Id)
-            <button type="submit" class="button special">Confirmar</button>
+           
+            <button type="submit" class="btn btn-primary">Confirmar</button>
+            @Html.ActionLink("Regresar","Index")
         </form>

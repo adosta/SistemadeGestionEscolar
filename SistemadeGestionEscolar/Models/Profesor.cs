@@ -39,14 +39,9 @@ namespace SistemadeGestionEscolar.Models
 
         public virtual ICollection<Clase> clase { get; set; }
 
-        public Profesor(RegisterViewModel model)
+        public Profesor(RegisterViewModel model):base(model)
         {
-            this.UserName = model.Email;
-            this.Email = model.Email;
-            this.nombre = model.nombre;
-            this.apellidoPaterno = model.apellidoPaterno;
-            this.apellidoMaterno = model.apellidoMaterno;
-            this.fechaDeNacimiento = model.fechaDeNacimiento;
+           
            
             this.especialidad = model.especialidad;
             this.grado = model.grado;

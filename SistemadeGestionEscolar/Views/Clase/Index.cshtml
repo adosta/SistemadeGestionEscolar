@@ -40,6 +40,9 @@
                 <td>
                     @Html.ActionLink("Details", "Details", "Clase", new { @id = item.claseID }, new { @class = "btn btn-primary" })
                 </td>
+                <td>
+                    @Html.ActionLink("Calificaciones", "nuevasCalificaciones", "Calificacion", new { @id = item.claseID }, new { @class = "btn btn-primary" })
+                </td>
             </tr>
         }
     </tbody>

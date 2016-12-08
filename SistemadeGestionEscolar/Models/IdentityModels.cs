@@ -21,7 +21,7 @@ namespace SistemadeGestionEscolar.Models
             this.apellidoPaterno = model.apellidoPaterno;
             this.apellidoMaterno = model.apellidoMaterno;
             this.fechaDeNacimiento = model.fechaDeNacimiento;    
-            this.rol = model.rol;
+           
         }
 
         public ApplicationUser()
@@ -29,13 +29,15 @@ namespace SistemadeGestionEscolar.Models
 
         }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser>manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
         }
+       
+
         //Datos de profesor
         public string nombre { get; set; }
         public string apellidoPaterno { get; set; }

@@ -51,7 +51,7 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-       
+
 
         <dt>
             @Html.DisplayNameFor(model => model.UserName)
@@ -79,6 +79,36 @@
 
     </dl>
 </div>
+
+<table id="myTable" class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre De Clase</th>
+            
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var clases in Model.clase)
+        {
+            <tr>
+
+                <td>@(clases.asignatura.nombreAsignatura)</td>
+                <td>
+                    @Html.ActionLink("Calificaciones", "nuevasCalificaciones","Calificacion", new { @id = clases.claseID }, new { @class = "btn btn-primary" })
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", "Clase", new { @id = clases.claseID }, new { @class = "btn btn-primary" })
+                </td>
+            </tr>
+           
+
+        }
+    </tbody>
+</table>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "IndexProfesor")

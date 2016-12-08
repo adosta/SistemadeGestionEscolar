@@ -251,6 +251,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Alumno.cs" />
+    <Compile Include="Models\Archivo.cs" />
     <Compile Include="Models\Asignatura.cs" />
     <Compile Include="Models\Calificacion.cs" />
     <Compile Include="Models\Carrera.cs" />
@@ -266,7 +267,6 @@
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\ie8.css" />
     <Content Include="assets\css\ie9.css" />
-    <Content Include="assets\css\images\alex1.png" />
     <Content Include="assets\css\images\dark-bl.svg" />
     <Content Include="assets\css\images\dark-br.svg" />
     <Content Include="assets\css\images\dark-tl.svg" />
@@ -276,6 +276,7 @@
     <Content Include="assets\css\images\light-tl.svg" />
     <Content Include="assets\css\images\light-tr.svg" />
     <Content Include="assets\css\images\overlay.png" />
+    <Content Include="assets\css\images\ut3.jpg" />
     <Content Include="assets\css\images\UTPP.png" />
     <Content Include="assets\css\main.css" />
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
@@ -296,6 +297,9 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="images\banner.jpg" />
+    <Content Include="images\fondo1.jpg" />
+    <Content Include="images\fondo2.jpg" />
+    <Content Include="images\fondo3.jpg" />
     <Content Include="images\pic01.jpg" />
     <Content Include="images\pic02.jpg" />
     <Content Include="images\pic03.jpg" />
@@ -437,6 +441,8 @@
     <Content Include="Views\Clases2\Details.cshtml" />
     <Content Include="Views\Clases2\Edit.cshtml" />
     <Content Include="Views\Clases2\Index.cshtml" />
+    <Content Include="Views\Calificacion\nuevasCalificaciones.cshtml" />
+    <Content Include="Views\Account\AlumnoDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

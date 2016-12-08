@@ -21,14 +21,9 @@ namespace SistemadeGestionEscolar.Models
 
         public virtual ICollection<Calificacion> calificaciones { get; set; }
 
-        public Alumno(RegisterViewModel model)
+        public Alumno(RegisterViewModel model) : base(model)
         {
-            this.UserName = model.Email;
-            this.Email = model.Email;
-            this.nombre = model.nombre;
-            this.apellidoPaterno = model.apellidoPaterno;
-            this.apellidoMaterno = model.apellidoMaterno;
-            this.fechaDeNacimiento = model.fechaDeNacimiento;
+            
             
             this.carreraPreferida = model.carreraPreferida;
             //this.grupo.nombreGrupo = model.grupoID;

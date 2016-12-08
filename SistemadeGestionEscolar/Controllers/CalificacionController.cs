@@ -37,30 +37,113 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
         // GET: Calificacion/Create
-        public ActionResult Create()
-        {
-            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre");
-            ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID");
-            return View();
-        }
+        //public ActionResult Create()
+        //{
+        //    ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre");
+        //    ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID");
+        //    return View();
+        //}
 
-        // POST: Calificacion/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,Id,claseID")] Calificacion calificacion)
+        //// POST: Calificacion/Create
+        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //// more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,Id,claseID")] Calificacion calificacion)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.calificaciones.Add(calificacion);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre", calificacion.Id);
+        //    ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
+        //    return View(calificacion);
+        //}
+        [HttpGet]
+        public ActionResult nuevasCalificaciones(int id = 0)
         {
-            if (ModelState.IsValid)
+            var clase = db.clases.Include("calificacion").Single(c => c.claseID == id);
+
+            var cals = clase.calificacion.ToList();
+            ViewBag.clase = clase;
+            return View(cals);
+        }
+        [HttpPost]
+        public ActionResult nuevasCalificaciones(string[] alumnoID, string[] calificacion, string parcial, int claseID)
+        {
+            string id = alumnoID[0];
+            Calificacion cal = db.calificaciones.Single(c => c.Id == id && c.claseID == claseID);
+
+            if (parcial=="parcial1")
             {
-                db.calificaciones.Add(calificacion);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                int index = 0;
+                foreach (var Item in calificacion)
+                {                   
+                    cal.parcial1 = int.Parse(Item);
+                   
+                    db.Entry(cal).State = EntityState.Modified;
+                    db.SaveChanges();
+                    index = index + 1;
+                    if (index < alumnoID.Length)
+                    {
+                        id = alumnoID[index];
+
+                        cal = db.calificaciones.Single(c => c.Id == id && c.claseID == claseID);
+                    }
+                }
             }
 
-            ViewBag.Id = new SelectList(db.alumnos, "Id", "nombre", calificacion.Id);
-            ViewBag.claseID = new SelectList(db.clases, "claseID", "claseID", calificacion.claseID);
-            return View(calificacion);
+            if (parcial=="parcial2")
+            {
+                int index2 = 0;
+                foreach (var Item2 in calificacion)
+                {
+                   
+                   cal.parcial2 = int.Parse(Item2);
+                   
+
+                    db.Entry(cal).State = EntityState.Modified;
+                    db.SaveChanges();
+                    index2 = index2 + 1;
+                    if (index2 < alumnoID.Length)
+                    {
+                        id = alumnoID[index2];
+
+                        cal = db.calificaciones.Single(c => c.Id == id && c.claseID == claseID);
+                    }
+                }
+            }
+
+
+            if (parcial == "parcial3")
+            {
+                int index3 = 0;
+                foreach (var Item3 in calificacion)
+                {
+
+                    cal.parcial3 = int.Parse(Item3);
+
+
+                    db.Entry(cal).State = EntityState.Modified;
+                    db.SaveChanges();
+                    index3 = index3 + 1;
+                    if (index3 < alumnoID.Length)
+                    {
+                        id = alumnoID[index3];
+
+                        cal = db.calificaciones.Single(c => c.Id == id && c.claseID == claseID);
+                    }
+                }
+            }
+
+
+            
+            /*db.calificaciones.Add(calificaciones);*/
+           
+            return RedirectToAction("../Home");
         }
 
         // GET: Calificacion/Edit/5
@@ -85,7 +168,7 @@ namespace SistemadeGestionEscolar.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,numeroMatricula,claseID")] Calificacion calificacion)
+        public ActionResult Edit([Bind(Include = "calificacionID,parcial1,parcial2,parcial3,final,Id,claseID")] Calificacion calificacion)
         {
             if (ModelState.IsValid)
             {

@@ -26,7 +26,7 @@ namespace SistemadeGestionEscolar.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -38,9 +38,9 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -57,7 +57,7 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
 
-        
+
 
         //
         // GET: /Account/Login
@@ -72,7 +72,7 @@ namespace SistemadeGestionEscolar.Controllers
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
-        [ValidateAntiForgeryToken]
+        // [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
             if (!ModelState.IsValid)
@@ -127,7 +127,7 @@ namespace SistemadeGestionEscolar.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -147,11 +147,11 @@ namespace SistemadeGestionEscolar.Controllers
         public ActionResult Register()
         {
 
-            var carreras =db.carreras ;
+            var carreras = db.carreras;
             SelectList carreraID = new SelectList(carreras, "NombreCarrera", "NombreCarrera");
 
             ViewBag.carreraPreferida = carreraID;
-           
+
             return View();
         }
 
@@ -166,7 +166,7 @@ namespace SistemadeGestionEscolar.Controllers
             {
                 var user = new ApplicationUser();
 
-                if (!User.Identity.IsAuthenticated || model.rol==ApplicationUser.RoleNames.ALUMNO)
+                if (!User.Identity.IsAuthenticated || model.rol == ApplicationUser.RoleNames.ALUMNO)
                 {
                     user.rol = ApplicationUser.RoleNames.ALUMNO;
                     user = new Alumno(model);
@@ -190,7 +190,7 @@ namespace SistemadeGestionEscolar.Controllers
                     }
                     else
                     {
-                       
+
                         UserManager.AddToRole(user.Id, "Alumno");
                     }
                     //Entra automaticamente al sistema
@@ -535,6 +535,21 @@ namespace SistemadeGestionEscolar.Controllers
             return View(todosLosUsuarios);
         }
 
+
+        public ActionResult AlumnoDetails(string id)
+        {
+            //Indentificacion automaticamente el ID del usuario logead
+            string userID = User.Identity.GetUserId();
+            //Busca el alumno por ID
+            var alumno = db.alumnos.Find(userID);
+
+            if (alumno == null)
+            {
+                return HttpNotFound();
+            }
+            return View(alumno);
+        }
+
         [HttpGet]
         [Authorize(Roles = "Admin,Capturista")]
         public ActionResult alumnoEditar(string Id)
@@ -546,7 +561,7 @@ namespace SistemadeGestionEscolar.Controllers
                 return RedirectToAction("Index");
             }
 
-            
+
 
             var grupo = db.grupos;
             SelectList grupoID = new SelectList(grupo, "grupoID", "nombreGrupo");
@@ -555,25 +570,46 @@ namespace SistemadeGestionEscolar.Controllers
         }
 
 
+        //[HttpPost]
+        //[Authorize(Roles = "Admin,Capturista ")]
+        //public ActionResult alumnoEditar(Alumno alumnoEditado)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.Entry(alumnoEditado).State = EntityState.Modified;
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }           
+        //    var grupo = db.grupos;
+        //    SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");
+        //    ViewBag.grupoID = grupoID;
+
+        //    return View();
+        //}
+
         [HttpPost]
-        [Authorize(Roles = "Admin,Capturista ")]
-        public ActionResult alumnoEditar(Alumno alumnoEditado)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> alumnoEditar(
+            [Bind(Include = "Id,nombre,apellidoPaterno,apellidoMaterno,fechaDeNacimiento,carreraPreferida,grupoID,Email,Password,PhoneNumber,grupoID")]
+            Alumno alumnoEditado)
         {
+            alumnoEditado.UserName = alumnoEditado.Email;
             if (ModelState.IsValid)
             {
-                db.Entry(alumnoEditado).State = EntityState.Modified;
-                db.SaveChanges();
+                var userManager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                var result = await userManager.UpdateAsync(alumnoEditado);
                 return RedirectToAction("Index");
             }
-
-            
-
-            var grupo = db.grupos;
-            SelectList grupoID = new SelectList(grupo, "nombreGrupo", "nombreGrupo");
-            ViewBag.grupoID = grupoID;
-
-            return View();
+            ViewBag.grupoID = new SelectList(db.grupos, "grupoID", "nombre", alumnoEditado.grupoID);
+            return View(alumnoEditado);
         }
+
+
+
+
+
+
+
 
 
         [Authorize(Roles = "Admin")]
@@ -618,20 +654,51 @@ namespace SistemadeGestionEscolar.Controllers
 
             return View(todosLosUsuarios);
         }
-
+        [Authorize(Roles = "Profesor, Admin")]
         public ActionResult profesorDetails(string id)
         {
-            if (id == null)
+            //si es profesor
+            if (User.IsInRole("Profesor"))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                id = User.Identity.GetUserId();
+                
             }
-            Profesor profesor = db.profesores.Find(id);
-            if (profesor == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profesor);
+            
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                Profesor profesor = db.profesores.Find(id);
+                if (profesor == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(profesor);
+            
         }
+
+        //public ActionResult AlumnoDetails(string id)
+        //{
+        //    //Indentificacion automaticamente el ID del usuario logead
+        //    string userID = User.Identity.GetUserId();
+        //    //Busca el alumno por ID
+        //    var alumno = db.alumnos.Find(userID);
+
+        //    if (alumno == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(alumno);
+        //}
+
+
+
+
+
+
+
+
+
 
         [HttpGet]
         [Authorize(Roles = "Admin,Capturista")]

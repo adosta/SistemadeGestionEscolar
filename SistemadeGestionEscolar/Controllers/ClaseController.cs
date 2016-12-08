@@ -54,20 +54,20 @@ namespace SistemadeGestionEscolar.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.clases.Add(clase);
+                
 
                 var grupo = db.grupos.Find(clase.grupoID);
                 var alumno = grupo.alumnos;
 
+                List<Calificacion> listaCalificaciones = new List<Calificacion>();
                 foreach (var elemento in alumno)
                 {
                     Calificacion nuevaCalificacion = new Calificacion();
                     nuevaCalificacion.Id = elemento.Id;
-                    nuevaCalificacion.claseID = clase.claseID;
-
-                    db.calificaciones.Add(nuevaCalificacion);
+                    listaCalificaciones.Add(nuevaCalificacion);
                 }
-
+                clase.calificacion = listaCalificaciones;
+                db.clases.Add(clase);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
